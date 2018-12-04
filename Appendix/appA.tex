@@ -1,0 +1,400 @@
+\chapter{Queries list}
+\label{app:A}
+
+\section{Linear joins queries}
+
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={L1 Search for ... }]
+#Linear template L1
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?observation ?sensor ?station 
+WHERE {
+ ?observation sosa:hasFeatureOfInterest %featureOfInterest%.
+ ?observation sosa:madeBySensor         ?sensor.
+ ?sensor      sosa:isHostedBy           ?station.
+}
+\end{lstlisting}
+%Checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={L2 - Search for ... }]
+#Linear template L2
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/iot/data/noaa/>
+PREFIX dul:<http://www.loa-cnr.it/ontologies/DUL.owl#>
+
+SELECT ?observation 
+WHERE {
+  ?featureOfInterest  dul:hasLocation           ?location .
+  ?observation        sosa:hasFeatureOfInterest ?featureOfInterest .
+  ?observation        sosa:observedProperty     <iot:observableProperty/windSpeed/>.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={L3 - Search for ... }]
+#Linear template L3
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?observation ?sensor 
+WHERE {
+  ?observation sosa:madeBySensor ?sensor.
+  ?observation sosa:hasFeatureOfInterest %featureOfInterest%.
+}
+%checked
+\end{lstlisting}
+
+%====================================================================================
+\newpage
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={L4 - Search for ... }]
+#Linear template L4
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?station ?sensor 
+WHERE 
+{
+  ?station sosa:hosts ?sensor.
+  ?station sosa:hasLocation %location%.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={L5 - Search for ... }]
+#Linear template L5
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?station ?sensor ?observation
+WHERE 
+{
+  ?sensor        sosa:isHostedBy ?station.
+  ?sensor        sosa:madeObservation ?observation.
+  ?observation   sosa:hasFeatureOfInterest %featureOfInterest%.
+}
+\end{lstlisting}
+%check
+\section{Start joins queries}
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={S1 - Search for ... }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sensor ?observation ?featureOfInterest ?result ?time ?observableProperty
+WHERE {
+ ?sensor      sosa:madeObservation ?observation.
+ ?observation sosa:hasFeatureOfInterest ?featureOfInterest.
+ ?observation sosa:resultTime ?time.
+ ?observation sosa:hasSimpleResult ?result.
+ ?observation sosa:observedProperty ?observableProperty.
+ ?observation rdf:type sosa:Observation.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={S2 - Search for ... }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/dev/iot/noaa/>
+
+SELECT ?observation ?sensor ?time 
+WHERE {
+ ?observation  sosa:madeBySensor         ?sensor.
+ ?observation  sosa:hasFeatureOfInterest  %featureOfInterest%.
+ ?observation  sosa:resultTime           ?time.
+ ?observation  sosa:observedProperty      <iot:/observableProperty/windSpeed/>.
+}
+\end{lstlisting}
+%checked
+\newpage
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={S3 - Search for ... }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sensor ?station ?observation ?observableProperty 
+WHERE {
+ ?sensor rdf:type             %sensorType%.
+ ?sensor sosa:isHostedBy      ?station.
+ ?sensor sosa:madeObservation ?observation.
+ ?sensor sosa:observes        ?observableProperty.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={S4 - Find all   }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/dev/iot/noaa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sensor ?observation ?station 
+WHERE {
+ ?sensor  rdf:type              %sensorType%.
+ ?sensor  sosa:madeObservation  ?observation.
+ ?station sosa:hosts            ?sensor.
+ ?sensor  sosa:observes         <iot:observableProperty/windSpeed/>.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={S5 - Find all   }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/dev/iot/noaa/>
+
+SELECT ?observation ?time ?result 
+WHERE {
+ ?observation sosa:hasFeatureOfInterest %featureOfInterest%.
+ ?observation sosa:resultTime	        ?time.
+ ?observation sosa:hasSimpleResult      ?result.
+ ?observation sosa:observedProperty     <iot:observableProperty/windSpeed/>.
+}
+\end{lstlisting}
+%checked
+\section{Snowflake joins queries}
+
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={F1 - Find all   }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sensor ?observation ?sensorType ?observableProperty ?result ?type
+WHERE {
+  ?sensor       rdf:type             ?sensorType.
+  ?sensor       sosa:observes        ?observableProperty.
+  ?observation  sosa:madeBySensor    ?sensor.
+  ?observation  rdf:type             ?type.
+  ?observation  sosa:resultTime      %time%.
+  ?observation  sosa:hasSimpleResult ?result
+}
+%checked
+\end{lstlisting}
+
+
+\newpage
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={F2 - Find all   }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?observation     ?sensor     ?featureOfInterest ?time ?result 
+       ?observationType ?sensorType 
+WHERE {
+   ?observation sosa:hasFeatureOfInterest ?featureOfInterest.
+   ?observation sosa:resultTime           ?time.
+   ?observation sosa:hasSimpleResult      ?result.
+   ?observation sosa:observedProperty     %observableProperty%.
+   ?observation rdf:type                  ?observationType.
+   ?observation sosa:madeBySensor         ?sensor.
+   ?sensor      sosa:isHostedBy           ?station.
+   ?sensor      rdf:type                  ?sensorType.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={F3 - Find all   }]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/dev/iot/noaa/>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?sensor ?station ?type ?location ?point ?name ?lat ?lon.
+WHERE { 
+?observation       sosa:hasSimpleResult       ?result.
+?featureOfInterest sosa:isFeatureOfInterestOf ?observation.
+?observation       sosa:madeBySensor          ?sensor.
+?sensor            sosa:observes              ?observableProperty.
+?sensor            sosa:isHostedBy            ?platform.
+?sensor            rdf:type                   %sensorType%.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\begin{lstlisting}[
+captionpos=b, 
+language=sparql,
+basicstyle=\scriptsize\ttfamily,
+title={F4 - Find all   }]
+PREFIX ssn:<http://www.w3.org/ns/ssn/>
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX wgs84:<http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dul:<http://www.loa-cnr.it/ontologies/DUL.owl#>
+PREFIX geo:<http://www.geonames.org/ontology#>
+
+SELECT ?featureOfInterest ?result ?observation
+WHERE { 
+  ?featureOfInterest ssn:hasProperty <http://insight.org/iot/data/noaa/observableProperty/windSpeed/>.
+  ?featureOfInterest dul:hasLocation ?location.
+  ?location wgs84:point ?point.
+  ?point    wgs84:lat %lat%.
+  ?point    wgs84:lon %lon%.
+  ?featureOfIterest sosa:isFeatureOfInterestOf ?observation.
+  ?observation sosa:resultTime %time%.
+  ?observation sosa:hasSimpleResult ?result.
+}
+\end{lstlisting}
+%checked
+\section{Complex}
+
+%====================================================================================
+\begin{lstlisting}[captionpos=b, 
+language=sparql,
+title=Query 1. List all the temperature values from a given location and order by time,
+basicstyle=\ttfamily,frame=single]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX wgs84:<http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dul:<http://www.loa-cnr.it/ontologies/DUL.owl#>
+PREFIX geo:<http://www.geonames.org/ontology#>
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?result ?time
+WHERE
+{
+    ?station       dul:hasLocation       ?location.
+    ?location      wgs84:Point           ?point.
+    ?point         wgs84:lat             %lat%.
+    ?point         wgs84:lon             %lon%.
+    ?station       sosa:hosts            ?sensor.
+    ?sensor        rdf:type              <http://insight.org/iot/data/noaa/class/temperatureSensor/>.
+    ?sensor        sosa:madeObservation  ?observation.
+    ?observation   sosa:observedProperty <http://insight.org/iot/data/noaa/observableProperty/temperature/>.
+    ?observation   sosa:resultTime       ?time.
+    ?observation   sosa:hasSimpleResult  ?result.
+}
+ORDER BY (?time)
+\end{lstlisting}
+%checked
+%====================================================================================
+
+{
+\begin{lstlisting}[captionpos=b, 
+title=Query 2. Return the average temperature in each month of a given station,
+language=sparql,
+basicstyle=\ttfamily,frame=single]
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?month (avg(?re) as ?TempAVG)
+
+WHERE
+{
+    %station%      sosa:hosts            ?sensor.
+    ?sensor        rdf:type              <http://insight.org/iot/data/noaa/class/temperatureSensor/>.
+    ?sensor        sosa:madeObservation  ?observation.
+    ?observation   sosa:observedProperty <http://insight.org/iot/data/noaa/observableProperty/temperature/>.
+    ?observation   sosa:resultTime       ?time.
+    ?observation   sosa:hasSimpleResult  ?result.
+}
+GROUP BY (month(?time) as ?month)
+\end{lstlisting}
+}
+%checked
+%====================================================================================
+{
+\begin{lstlisting}[captionpos=b, 
+language=sparql,
+title=Query 3. Search for the date that has highest temperature in a given station
+basicstyle=\ttfamily,
+frame=single]
+PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+
+SELECT ?day ?month (max(?TempValue) as ?TempMax)
+
+WHERE
+{
+ %station%      sosa:hosts             ?sensor.
+ ?sensor        rdf:type               <http://insight.org/iot/data/noaa/class/temperatureSensor/>.
+ ?sensor        sosa:madeObsevation    ?observation.
+ ?observation   sosa:observedProperty  <http://insight.org/iot/data/noaa/observableProperty/temperature/>.
+ ?observation   sosa:resultTime        ?time.
+ ?observation   sosa:hasSimpleResult   ?result.
+}
+GROUP BY (day(?time) as ?day) (month(?time) as ?month)
+\end{lstlisting}
+}
+%checked
+%====================================================================================
+\newpage
+\begin{lstlisting}[captionpos=b, 
+title=Query 4. Search for the hottest place,
+language=sparql,
+basicstyle=\ttfamily,
+frame=single]
+PREFIX sosa:<http://www.w3.org/ns/sosa/>
+PREFIX iot:<http://insight.org/dev/iot/noaa/>
+PREFIX wgs84:<http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX dul:<http://www.loa-cnr.it/ontologies/DUL.owl#>
+PREFIX geo:<http://www.geonames.org/ontology#>
+
+SELECT ?maxValue ?lat ?long ?name.
+
+WHERE
+{
+  {
+ 	SELECT ?observation (MAX(?result) as ?maxValue)
+    {
+      ?observation   sosa:observedProperty  <http://insight.org/iot/data/noaa/observableProperty/temperature/>.
+      ?observation   sosa:resultTime      ?time.
+      ?observation   sosa:hasSimpleResult ?result.
+    }
+  }
+  ?observation sosa:madeBySensor ?sensor.
+  ?sensor      sosa:isHostedBy   ?station.
+  ?station     dul:hasLocation   ?location.
+  ?location    wgs84:Ooint       ?point.
+  ?point       geo:name          ?name.
+  ?point       wgs84:lat         ?lat.
+  ?point       wgs84:lon         ?lon.
+}
+\end{lstlisting}
+%checked
+%====================================================================================
+\section{Federated Query}

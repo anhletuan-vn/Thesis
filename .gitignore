@@ -1,0 +1,12 @@
+*.aux
+*.lof
+*.log
+*.lot
+*.out
+main.pdf
+*.tdo
+*.toc
+*.gz
+Pictures/c2/*.log
+Pictures/c2/*.aux
+Pictures/c2/*.tex

@@ -1,0 +1,411 @@
+\chapter{Internet of Things: Semantics}
+\lhead{Chapter 3. Internet of Things: Semantics}
+
+\section{Justification for a semantic IoT}
+
+\subsection{Importance of the Semantic Technology for the IoT}
+\label{ss:stiot}
+
+As mentioned above, the IoT would destine with huge number of interconnected objects.
+Recently, there have been around 7 billions active IoT devices and this number is still growing with an upper trend~\footnote{https://iot-analytics.com/state-of-the-iot-update-q1-q2-2018-number-of-iot-devices-now-7b/}.
+Searching for a device or for a piece of information among billions IoT devices and terabytes of information would become exponentially harder.
+Enabling the integrating of the information from billion sources would become more challenging.
+Big data solutions~\citep{Chen:2014} and cloud platforms~\citep{Botta:2016} could provide mechanisms to handle huge amount of information.
+However, efficient methods that could structure, annotate, link and make sense of the information would still be needed~\citep{Barnaghi:2012}.
+Regarding the challenge of how to organise and interconnect IoT information, the Semantic Web technology offers \textit{Resource Description Framework(RDF)}~\citep{Lassila:1999}.
+RDF allows flexible way to describe data and its properties, relations and allows data to be linked.
+Therefore, ``Things" can be searched and grouped with common properties~\citep{Chun:2015} and more related ``Things" can be discoverable~\citep{Serena:2017}.
+
+As billions of IoT devices will be interconnected to create the IoT, and they must be able to operate and communicate with each other autonomously.
+Therefore, enabling the interoperability among IoT devices has been considered as one of the most fundamental requirements for a smart IoT.
+Recently, more than 300 IoT platforms have been developed and they were still fragmented due to the lack of the interoperability.
+\cite{Manyika:2015} has estimated that the potential economic benefits of the IoT might be reduced by 40 percent due the missing interoperability.
+
+The interoperability challenges in the IoT can be divided into \textit{connectivity level} and \textit{semantic level}~\citep{Kiljander:2014}.
+The issue of interoperability in the connectivity level refers to how to allow IoT devices to transfer data with each other.
+Whereas, in the semantic level, the problem refer to how different IoT devices, platforms are enabled to exchange data with unambiguous and shared meaning.
+
+At the connectivity level, the interoperability could be provided by creating mechanism to deal with the heterogeneity of communication technologies(WiFi, ZigBee, ANT+), network protocols(CoAP, MQTT, XMPP). 
+The proposed solutions suggested that IoT platforms would offer a pool of standardised communication protocol, hence, device 
+manufacturers would be able to select the appropriate communication protocols~\citep{Noura:2017}.
+The IoT gateway~\citep{Zhu:2010} seems to have been an attractive solution for such mechanism in an IoT platform~\citep{DaXu:2014}.
+Network protocols can be selected or translated via gateway devices that enabling the interoperability in this level~\citep{Bandyopadhyay:2013}. 
+
+However, interoperability in the connectivity level can not fulfil the interoperability required in the IoT~\citep{Kiljander:2014}.
+Applications, systems can not make use of the data from different IoT platforms without understanding it. 
+In the semantic interoperability level, the focus lies on the mechanism that allows the meaning of data and services to be shareable.
+Using the semantic annotation can provide IoT data, services with machine-understandable descriptions on what the data represents or what the services offer~\citep{IERC:2013}.
+Therefore, IoT data and services can be exchanged among IoT devices and crossing IoT platforms. 
+
+The Semantic Web technology has been the preferable solution for the semantic annotation on the Web and could utilise also in the IoT~\citep{Jara:2014,Noura:2017}. 
+RDF data model has been a suitable data model for semantic annotation~\citep{Oren:2014} and also ideally for providing semantic annotated for IoT data~\citep{Wei:2009}.
+The extensions of the RDF are the RDF Schema(RDFS), Ontology Web Language(OWL) that define the structure for the RDF.
+The RDFS and OWL increase the expressiveness of RDF data by defining domain and range for properties, as well as, its hierarchy such as sub-class, sub-property.
+Therefore, IoT data could be represented in different abstraction levels and its semantic could be enriched depending on requirement~\citep{IERC:2013}.
+Based on RDF, RDFS and OWL, different ontologies could be developed for information reusability and shareability thus enabling the semantic interoperability. 
+
+Moreover, the collected data from IoT could create situation awareness that enable smarter application, systems~\citep{Barnaghi:2012}.
+These smart applications, systems have been well-known as context-awareness systems~\citep{Baldauf:2007}.
+They could react adaptively to the change of their context. 
+The context-aware systems require logical reasoning processing to derive the context from the data.
+The semantic representation formalism used in the Semantic Web provide logical reasoning to derive context, to infer new context from existing knowledge and rules.
+The OWL as ontology-based frameworks for context modelling and reasoning have been used in pervasive computing domain~\citep{Mikko:2009,Bettini:2010}, and now in the IoT domain~\citep{Perera:2014}.
+
+
+\section{Challenges for a Semantic IoT}
+
+\section{Semantic Technologies for the IoT}
+
+\section{Challenges to implementing an edge-based semantic architecture}
+
+
+%==================================================================================================
+\section{Hardware characteristics of IoT Edge Devices}
+%==================================================================================================
+
+Recent advances in the technologies of embedded processor have increased the processing capabilities of IoT edge devices.
+Based on the computational capability, IoT devices can be categorised into two categories: low-end devices and high-end devices.
+The low-end IoT devices which are very constrained in terms of resources including energy, CPU(less than 100MHz) and memory capacity (less than 100 kB).
+Popular examples of devices in such category include 
+Arduino~\footnote{https://www.arduino.cc/}, 
+Zolertia~\footnote{https://zolertia.io/}, 
+OpenMote node~\footnote{http://www.openmote.com/}, etc.
+The second category consist in high-end IoT devices, which includes single-board computer such as Raspberry Pi~\footnote{https://www.raspberrypi.org/}, 
+Beagle Bone board~\footnote{https://beagleboard.org/bone} or 
+smartphones.
+The high-end devices are more powerful than the low-end devices.
+They have enough resources and adequate characteristic to run software based on tradition operating systems such Linux or BSD. 
+
+The current trend seems to be that all the devices communicate directly with the cloud and interact with each other through web services~\citep{E.A.Lee:2014}. 
+Several significant problems with traditional cloud of things~\citep{Parwekar:2011} have been revealed, for example, the issues with scalability, latency, bandwidth. 
+These problems are not new to typical web applications, they are exacerbated in the IoT space because of the fundamental differences between IoT and web services~\citep{Zhang:2015}.
+To deal with the issues, the task of processing the the task of processing the data is pushed to the edge devices, introducing concepts of Fog computing~\citep{Bonomi:2012}, Edge Computing~\citep{Salman:2015}.
+Due to the limited computational capabilities of low-end devices, they are often deployed in the lowest layer of the IoT that perceive the real-world data.
+On the on the hand, the devices in the high-end category contain suitable hardware for performing such operations~\citep{Kruger:2014, Morabito:2017}.
+
+IoT gateways, in the centralised scenarios, are the devices that are used to settle the heterogeneity between different networks and the Internet~\citep{Zhu:2010, Petrolo:2017}.
+A separate gateway service has to be provided for each type of IoT device that is deployed~\citep{Zachariah:2015}.
+Essentially, today's IoT gateways present problems with the distributed scenarios, to enable communication between IoT devices networking interoperability alone is not enough.
+More functionalities, for example interoperability at data annotation level, are requires on the gateway level~\citep{Desai:2015}.
+The gateway may have to execute some data processing functions, such as data aggregation.
+Such high-end devices are lightweight and have computation resources that are feasible to be implemented as the smart IoT gateway.
+
+As presented in the previous chapter, the Semantic Web is a promising key technologies that enable the semantic interoperability for the IoT.
+RDF engines have been proposed as semantic integration gateways for IoT data~\citep{Kiljander:2014}.
+Having an RDF engine on such devices will enhance the build for the smart IoT gateway.
+Placing computational nodes closer to source devices offers opportunities to improve performance and to reduce network overhead, but also flexibility for the continuous integration of new IoT devices and data sources. 
+
+In order to understand how to create an RDF engine on that type of devices, it is obviously important to understand how the hardware on which the engine is to be run behaves.
+This section offers a brief overview of the components of the high-end edge devices that are particularly relevant to DBSMs performance, with a focus on the commonly used o ARM architecture and flash-based storage.
+
+%Memory hierarchy CPU Register $\to$ L1 Cache $\to$ L2 Cache $\to$ Memory $\to$ Flash Storage.
+%, with a focus on the commonly used o ARM architecture and flash-based storage.
+
+%==================================================================================================
+\subsection{CPU}
+\label{ss:CPU}
+%==================================================================================================
+
+The IoT edge devices are mostly equipped with ARM(\textit{Advance RISC Machine}) processors which is an 32-bit \textit{reduced instruction set computing (RISC)} architecture for computer processors.
+ARM processors possess a unique characteristics that are desirable for lightweight, portable, battery-powered devices.
+First, processors that have a RISC architecture typical require fewer transistors than those of general-purpose processors, leaving plenty of space on the chip for application-specific macro-cells.
+Second, ARM instruction set architecture and pipeline are designed to minimise the uses of energy consumption.
+Third, ARM is highly modular, the mandatory of an ARM processor is the integer pipeline, all other components are optional, which gives a lot of flexibility in building application-specific ARM-based processors.
+
+Among various ARM processor families, ARM Cortex-A series~\footnote{https://www.arm.com/products/processors/cortex-a} are mainly developed for open operating systems and applications including single-board computers, home gateways. 
+Beside integer pipeline, Cortex-A series is included superscalar and caches to improve the performance of the chip~\citep{Wang:2011}. 
+
+Pipelining is the process of dividing incoming instructions into its component parts and executing them sequentially~\citep{Molnar:1994}.
+The pipelining allows faster CPU throughput, one stage 1 of the pipeline has finished executing part 1 of instruction 1, it is able immediately begins executing part 1 of instruction 2.
+The RISC instructions are simpler than those used in ~\textit{complex instruction set computer (CICS)} processor.
+While CICS instructions varied in length, RISC instructions are all the same length and they are more conducive to pipelining.
+Ideally, each of the stages in a RISC processor pipeline should take 1 clock cycle, so that, if the pipeline is kept full, the processor takes an average of one clock cycle to finish an instruction.
+Pipeline length is vary between ARM processor design: the ARM Cortex A7~\footnote{https://developer.arm.com/products/processors/cortex-a/cortex-a7} has a pipeline length of 8 stages, as opposed to 13 for the ARM Cortex A8~\footnote{https://www.arm.com/products/processors/cortex-m/cortex-a8.php}.
+
+Superscalar architecture~\citep{Smith:1995} was applied in ARM Cortex A8 processor and later versions of ARM Cortex-A series~\citep{Wang:2011}.
+Superscalar implements a form of parallelism called instruction-level parallelism within a single processor.
+That enables processor to fetch and complete more than one instruction simultaneously if the instructions are independent.
+
+Pipelining and superscalar techniques increase CPU throughput without the requirement of increasing clock frequency.
+Both require data-independent instructions to operate with full effectiveness.
+If one instruction depends on the output of another, it cannot enter the pipeline until the first instruction has completed.
+Fortunately, modern versions of ARM Cortex A series have ability to process instructions out of order, allowing instructions that do not depend in the pipeline to jump the queue.
+Out-of-order execution is usually highly effective, except in the situations that operations are repeatedly executed on a small number of pieces of data.
+Such situation results in a lot of dependencies within the instruction stream~\citep{Zukowski:2006}.
+
+ARM Cortex-A series have Level 1 (L1) and Level 2 (L2) caches~\citep{Wang:2011}. 
+When the CPU is looking for information in memory, it will check its caches first before searching and transferring data from main memory.
+If one the caches has the information, the CPU can access it with cache latency which is much smaller than main memory latency.
+The cache line in ARM Cortex-A series is typically 32 bits.
+The L1 cache consist of two parts, each for data and instructions. It is small (16-32 Kb for each part) and extremely fast. 
+Data can usually be retrieved from this level in from 3 to 4 clock cycles. 
+The L2 cache is larger and be up to 1-4 MB, and somewhat slower, requiring around 14-21 cycles to access. 
+However, this is still an order of magnitude faster than main memory~\citep{Drepper:2007}.
+
+As long as data and instruction flow is sufficiently predictable, information can be held in and retrieved from cache, the throughput of RISC processors is able to utilise with full effect. 
+Given above information, it can be seen that the applications which run on ARM-based can achieve high performance if ensuring that data is compact and is located contiguously where possible, maximising cache utilisation.
+DBMSs have historically performed poorly at this task~\citep{Ailamaki:1999}.
+
+%http://processors.wiki.ti.com/index.php/LMBench_on_ARM_Microprocessors
+%http://ithare.com/infographics-operation-costs-in-cpu-clock-cycles/
+%==================================================================================================
+\subsection{Memory}
+%==================================================================================================
+
+The amount of Random Access Memory(RAM) on high-end IoT edge devices are much higher than that of low-end IoT edge devices.
+Single board computers can have from 256MB to 2GB of RAM.
+
+Storing data in RAM is relatively simple matter.
+RAM has a constant access time and its performance is vastly better than that of secondary memories, particularly flash-based storage of IoT edge devices. 
+The throughput of RAM is high, this seems the requirement for pieces of logically contiguous data to be placed next to each other is looser.
+However, the latency to access data from RAM can be in excess of 200 nanosecond~\footnote{https://www.7-cpu.com/cpu/Cortex-A8.html}.
+This makes it impractical for the processors to wait for memory every time they need access to a piece of data~\citep{Drepper:2007}.
+Data going to and from RAM is held in caches on the processor, as these had been previously explored in more depth in Section~\ref{ss:CPU}.
+In practice, the contiguity of data access remains important even when working with a main-memory system.
+
+The difficulties in working with RAM are that it is limited in size and not persistent.
+Although the capacity of RAM that is available on high-end devices increases, it still limited to for an in-memory DBMSs on such type of machines.
+Data should be mainly organise on next level of the next layer of memory hierarchy, the persistent storage layer.
+
+%https://www.7-cpu.com/cpu/Cortex-A8.html
+%==================================================================================================
+\subsection{Flash-based storage}
+\label{ss:flash}
+%==================================================================================================
+
+The majority of single board computer make use of flash-based storage such as SD cards or eMMC cards. 
+Compared to disk-based storage, flash memory has attractive features such as lighter and smaller, better shock resistance, lower power consumption, faster access time and no mechanical seek and rotation latency~\citep{Koltsidas:2011}
+
+Flash memory is a type of electronic memory that stores information in arrays of memory cells~\citep{Kono:2018}. 
+Flash cells are available in two varieties, \textit{Single Level Cells (SLC)}(SLC) and \textit{Multiple Level Cells (MLC)}, that stores one, two or three bits per cell perspectively. 
+As MLC devices is more dense that SLC one while both writing and reading to a multiple level cell takes longer than a single level one.
+For these reasons, SLC devices are mainly used for high performance purposes, while MLC ones typically applied where large capacity is required. 
+Depending on how flash cells are connected to form arrays, flash memory is classified into NOR flash and NAND flash.
+Since only MLC flash cells and NAND flash memory are suitable for storage devices, they are widely used in building flash storage. 
+
+In flash storage, arrays of flash cells are organised into pages and pages are grouped into blocks~\citep{Kono:2018}. 
+In most of storages, the size of a page is typically 2kB or 4kB and a block typically contains 64 pages.
+There are three operations on flash memory: read, write, and erase. 
+A page is the smallest unit that is can be read from or written to flash memory.
+An empty page has all its bit set and writing a page implies turning some of the bits to 0. 
+Resetting some bits in a page is not possible, rather, the whole page has to be reset before it can be set again.
+Resetting all the bits of a page is referred to as erasing and can not be done in page basic. 
+A block is the smallest structure of flash storage that can be erased. 
+Consequently, after erasing a block, each one of its pages can be written to only once. 
+In order to overwrite a page, the whole block needs of be erased first~\citep{Kono:2018}. 
+Erasure takes much longer time than read/write and the need of the erasure is well-known as the erase-before-write limitation of flash memory that incurs several penalty on flash storage performance.
+For instance, the write-in-place operation, that updates a single piece of data in a block, is inefficient as it consists of two operations on the entire block: erase and write.
+An other important limitation of flash memory is that, in its lifetime each flash block is only capable of a finite number erasure. 
+After that, the flash block becomes unusable. This limitation is referred to as memory wearing~\citep{Kono:2018}.
+
+The I/O behaviours of flash storage are particularly relevant for RDF stores, which are generally required to process a great many very small data point. 
+This is particularly relevant for RDF stores, which are generally required to process a great many very small data points.
+An extensive study on the performance of flash storage~\citep{Ajwani:2008} found that flash-memory yields better random read performance than magnetic disks, but a much worse random write one.  
+Without mechanical seek, data location is not as important as it is on disk-based storage.
+In this situation, assuming the processing cannot be kept fully sequential, writing time is extremely important because the write-in-place operation is not supported. 
+Specifically, the erase-before-write limitation degrades the efficiency of disk-based data structures~\citep{Bouganim:2009} and caching mechanisms~\citep{Graefe:2007}. 
+Due to the flash I/O behaviours, the commonly used indexing structure in RDF triple store (presented in Section~\ref{s:rdf_data_management}) is not optimal for writing on flash storage.
+
+%==================================================================================================
+\section{Database Management Techniques for IoT Edge Devices}
+%==================================================================================================
+
+From characteristics : $\to$ indexing techniques for flash memory and $\to$ memory adaptive 
+
+%==================================================================================================
+\subsection{Flash-awareness Data Structure for Storage}
+%==================================================================================================
+
+%==================================================================================================
+\subsubsection{Flash-awareness indexing}
+%==================================================================================================
+
+As discussed in Section~\ref{ss:flash}, flash storages have erase-before-write limitation that makes random writes inefficient.
+A great deal of research has focused on increasing the throughput of flash storage when writing small chunk in a random fashion.
+On hardware layer, flash storage controllers try to minimise the effect of erase-before-write limitation on random write by employing a software layer called \textit{Flash Transaction Layer(FTL)}~\citep{intel:1998}.
+The main purpose of the FTL is to provide logical-to-physical address mapping of file system and flash memory perspectively.
+Different types of flash storage may employ different FTL algorithms~\citep{Chung:2009}.
+From database management system perspective, the FTL is a black box.
+
+FTL algorithms are primarily designed with file systems in mind and are not well-suited for database workloads~\citep{Lee:2007}.
+Random write operations in file systems are mostly required for metadata. 
+When executing typical database workloads, random write operations may be performed over the whole disk address space. 
+As an aim that improves write efficiency for flash-based databases, the \textit{in-page logging(IPL)} scheme is proposed~\citep{Lee:2007}.
+Changes of a data page are not written directly to disk but to log records that is associated with the page.
+Data and its logs are co-located within the same physical block of flash memory, i.e, in the same erase unit.
+
+The main principle of the design of flash memory access methods is avoiding in-place updates and random writes.
+\cite{Nath:2008} approached this principle by avoiding \textit{sub-block deletions} and employing \textit{semi-random writes}.
+Sub-block deletion that deletes a portion of data in a block, on flash memory, would requires the undeleted data in the same block to be first migrated to a new block.
+Therefore, sub-block deletions can be two orders of magnitude more time than block deletions.
+Instead, access methods should employ semi-random writes, according to which individual pages within a block are written sequentially from the start of the block; the write pattern can select blocks in any order.
+The experimental evaluation of this principle was found to yield performance similar to the one of sequential writes.
+
+B-tree index is a data structure that is widely used in many file systems and database management systems for disk-based storage~\citep{Ullman:2001}. 
+However, the frequent random writes of B-tree may degrade the efficiency of B-tree index on flash memory.
+There have been an extensive research in order to optimise B-trees for flash memory.
+The proposed approaches can be grouped into: buffer-based approach, structure-modified approach or hybrid approach~\citep{Ho:2016}.
+
+The first group have used extra memory resource as write buffer to improve the performance of FLT. 
+\textit{BFTL} was proposed as a software layer on top of FLT that allows B-tree to work on flash memory with the same fashion as on magnetic disk~\citep{Wu:2007}.
+To overcome the erase-before-write limitation, BFLT propose storing tree nodes as a sequence of log records spread over multiple flash blocks.
+BFTL consists of two components: a reservation buffer and a node translation table.
+The modifications are temporarily stores in the reservation buffer, the the buffer is full they are flushed to flash memory.
+BFTL reduces the number of write operations, but reading node data that is scattered on different pages can become expensive.
+BFTL consumes also additional memory to persist the node translation layer. 
+To solve the problem of scattered node data, IBSF is buffer management scheme that stores all index units associated to one node within one page~\citep{Lee:2010}.
+IBSF efficiently eliminates redundant index units in the buffer to delay the time that the buffer is full.
+However, storing each B-tree node in one page results in pages can be used up quickly, thus garbage collection will occur frequently.
+\textit{Lazy Adaptive Tree (LA-tree)} was another approach that uses external buffer to delay the write on flash memory.
+LA-tree adds a buffer to the nodes at every level of the tree starting from the root~\citep{Agrawal:2009}.
+The updates on a node and its descendants are cached within the respective buffers. 
+The inserts is first cached in a root buffer, if the root is full they are pushed in a batch to the buffers at lower levels.
+
+On the other hand, the other approaches have modified the structure of the B-tree adaptively.
+Unlike the buffer-based approaches for tree index on flash storage, others approaches aimed to modified the structure of B-tree instead of using extra memory buffer.
+\textit{Wandering tree}, which was proposed for flash file system \textit{JFFS3}~\citep{Bityuckiy:2005}, stores the updates in free pages, therefore, it does not have to erase a page before writing.
+However, Wandering tree can lead to increased number of write operations when the height increases.
+{\Large $\mu$}-tree overcomes the limitation of Wandering tree by storing all the updated nodes along the path from the top to the bottom onto a single flash memory page~\citep{Kang:2007}.
+{\Large $\mu$}-tree allows the size of each node to vary depending on the level within a tree and the its height.
+However, $\mu$-tree doubles the number of pages to store the same data as a B-tree and its page-layout is space inefficient.
+{\Large $\mu$}*-tree was an enhanced version of $\mu$-tree that allows the node size at each level to be flexible and each page to have its own layout~\citep{Jin-Soo:2013}. 
+{\Large $\mu$}*-tree attempts to postpone its height growth by shrinking the size of leaf nodes. 
+Similarly to $\mu$-tree, $\mu$*-tree consumes much more pages comparing to a B-tree, nodes are often splinted, and the height of a tree can increase rapidly as nodes are smaller than in a B-tree. 
+FD-tree was another variant that modifies B-tree adaptively for flash memory~\citep{Li:2010}.
+FD-tree aims to reduce the number of random writes with the logarithmic method and fractional cascading techniques.
+On top of FD-tree is a small B$^{+}$-tree that fit in main memory and few levels of sorted runs are added at the bottom. 
+New elements are first added to the head tree and moved to lower levels when the head tree is full.
+Each node at lower in the FD-tree can be either a typical index node or a fence node, i.e., a pointer to a page in a lower level.
+The changes are merged to the lower level sorted runs in batches.
+The experimental evaluation of this technique shows that it outperforms all other B$^{+}$-tree variants at both search and update-intensive workloads.
+
+The hybrid approaches are the approaches that combine of buffer-based approach and structure-modified approach.
+MB-tree keeps a \textit{batch process buffer (BPB)} in the main memory and \textit{leaf node headers(LNH)} on the flash storage for meta-data about nodes~\citep{Roh:2009}. 
+An leaf node header occupies a single flash page.
+When the buffer is full it chooses the node that has the most modifications and moves it to the physical layer hence, it groups multiple data modifications in one write. 
+The MB-tree achieves an efficient trade-off between the page-write count and search time through a reduced write count by the BPB as well as enhanced search time by the LNH. 
+In order to take advantage of the parallelism and sequential write of the flash memory, the author of MB-tree also proposed \textit{Always Sequential B-tree structure (AS B-tree)}~\citep{Roh:2014}.
+AS B-tree also buffers write operations before pushing them to flash storage.
+However, when the data is moved it is placed at the end of a file instead of overwriting what allows them to avoid in-place writes. 
+
+The arrival of flash storage was also attracted to the researches on optimising hash index for such storage medium.
+MicroHash an efficient external memory index structure for Wireless Sensor Devices (WSDs), which stores data on flash by time or value~\citep{Zeinalipour:2005}. 
+However, the MicroHash can only be applied for wireless sensor which manipulates data directly to raw NAND flash.
+MLDH proposed a multi-layered hash index scheme, in which the capacity of each level is twice as its upper level~\citep{Yang:2009}. 
+Updates to the MLDH is first cached in an in-memory buffer, and the buffer is merged with hash indexes on flash when it is full.
+\cite{Wang:2010} proposed a flash based self-adaptive extendible hash index.
+Similarly to IPL storage model, a hash bucket consists of both data region and log region.
+Each hash bucket occupies a block (erase unit) of flash. 
+Update and delete operations are perform in the log region, so in-place updates to the data region can be delayed.
+In addition, a Split-or-Merge (SM) factor, which is dynamically adjusted according to the log/data ratio, is added to make the index self-adaptive.
+Hybrid Hash Index~\citep{Yoo:2012} delays split operations which cause additional writes and erase operations by using overflow buckets.
+If the number of overflow buckets attached to a bucket has reached the ceiling, the Hybrid Hash Index determines whether a split operation is triggered according to the ratio of update and delete records in that bucket.
+Another Lazy-Split scheme that avoids removing object in place was proposed in~\citep{Li:2008}. 
+Two variations of a linear hashing index were presented in the Lazy-Split scheme. 
+The first variation is similar to the standard linear hash index that is suitable for search-intensive workloads.
+The second variation is more suitable for update-intensive workloads.
+Hash buckets are split lazily in batches to reduce the cost of writes, of course, of some additional cost when searching the index.
+
+%==================================================================================================
+\subsubsection{Flash-aware Buffer management}
+%==================================================================================================
+
+Researchers also has considered novel buffer management scheme over flash storage.
+For the cases, data is stored persistently on flash storage and subset of persistent data are cached in main memory.
+The tradition caching schemes for magnetic disk, such as \textit{Least Recent Used LRU}, are not efficient for flash storage due to the asymmetric I/O of flash memory~\citep{Graefe:2007}.
+
+\textit{Clean First LRU (CFLRU)} was proposed as an alternative LRU scheme for the on-disk buffer cache of flash storage~\citep{Park:2006}.
+CFLRU aims to exploit the asymmetric performance of read and write operations of flash storage.
+It priorities a clean page to be a victim rather than dirty pages because writing cost is much more expensive.
+With this strategy, CFLRU was able to reduce the average replacement cost by 26$\%$ compared to the LRU algorithms.
+This is irrelevant when only write requests are involved. 
+Thus, it is not useful for enhancing random write performance.
+
+\textit{Block Padding LRU (BPLRU)} was the scheme that aimed for write-intensive database applications on flash storage~\citep{Kim:2008}.
+This scheme groups main memory buffers in blocks that are equal in size to the flash erase-unit. 
+Pages is replaced with erase-unit granularity following LRU policy.
+If not all pages in a dirty block are in the main memory, the absent pages are read from storage and the whole block is written to new flash location without the need for erasing.
+Additionally, a block that was written sequentially is moved to the tail of the LRU queue and becomes the next victim.
+
+\textit{Clean-First Dirty-Clustered (CFDC)} aimed to enhance the write performance of CFLRU by flushing pages in clustered fashion~\cite{Ou:2009}.
+CFDC minimises the number of writes and exploits the spatial locality of victim pages.
+Dirty pages whose page numbers are close to each other, and therefore are likely to be physically stored near one another, are clustered together in page clusters.
+The authors of CFDC later proposed a model for adjusting the size of the buffers for clean pages/dirty pages according to the storage device's read/write ratio~\citep{Ou:2010}.
+Thus, write operations become more flash-friendly.
+
+\textit{Cold Clean First LRU (CCF-LRU)} improves the performance of CFLRU in a different way~\citep{Z.Li:2009}.
+It tried to reduce the number of write accesses by keeping track of the condition (clean/dirty) and status (hot/cold) of pages.
+CCF-LRU uses two LRU queues to store data pages in main memory.
+The first queue keeps cold$\&$clean pages while hot$\&$clean pages and dirty pages are kept in the other queue.
+When the cache is full, data from the cold $\&$ clean part will be released from main memory to storage first.
+If the cold$\&$clean is empty, then data from the mixed queue is released.
+This scheme does not only delay the write operations for dirty pages but also delays the eviction of frequently accessed clean pages, that can increase the cache-hit ratio. 
+However, it can not detect the hot clean pages as it has no techniques to control the size of the cold$\&$clean part.
+This part is likely to be empty and newly read page is evicted immediately.
+
+The limitation of CCF-LRU was improved in \textit{Adaptive Double LRU (AD-LRU)}~\citep{Jin:2012}.
+In AD-LRU, two queues are also used to capture the frequency and recency of data pages.
+The authors introduced a parameter to set the lowest limit for the size of the code queue.
+The size of two queues can be adaptively resized to be suitable for different access patterns such as random, read-most or write-most.
+
+\textit{Flash-based Operation-aware buffer Replacement (FOR)} approaches the problem from a different perspective~\citep{Lv:2011}.
+The victim page is indicated by combining between the future operations and the page state 
+The benefit of keeping a page in main memory is quantified by distinguishing the page state (clean or dirty) and its next operation(read or write).
+In consequence, they introduced \textit{inter-operation distance(IOD)} and \textit{operation recency} for page operation to quantify its frequency and recency, receptively .
+However, fore every accessed page, two data points for the last read and last write have to be saved, and every operation has to be recorded.
+Hence, list that used to store these data is possibly very long.
+To overcome these issue, FOR$^{+}$ was introduced that tries to approximate the IOD based on the currently cached pages.
+The approximation adopts the metrics of the weight with binary representations to approximate the combination of operation type and page state.
+Both FOR/FOR$^{+}$ are built on an LRU basis there may be scan resistance issues. 
+Furthermore, both FOR and FOR$^{+}$ need carefully chosen cost estimation for reads and writes and FOR$^{+}$ needs another tuning parameter for the size of its cold page index.
+
+\cite{Anwar:2017} considered the overhead of garbage-collection can degrade the performance of the FTL of flash storage devices.
+They took garbage collection cost into account when introducing \textit{Log-buffer aware cache replacement policy (LAB)}.
+LBA attempts to streamline the write operations to flash memory, resulting in a low overhead to the FTL upon performing garbage collection.
+The life span of flash memory is also increased as the number of merge operations of the FTL was reduced.
+
+%==================================================================================================
+%\subsection{Memory adaptive}
+%==================================================================================================
+
+%Memory cognizat query optimization - 2000
+
+%Previous section provides techniques for processing SPARQL this section provide adaptive query processing.
+
+%[Memory-Contention Responsive Hash Joins - 1994]
+%An adaptable algorithm must satisfy two goals. 
+%First, it must be capable of both capitalizing on metiry increases and gracefully degrading in the face of memory losses.
+%The algorithm must be effective for fluctuations that vary drastically in both frequency and magnitude. 
+%Second, the algorithm must exhibit good responsiveness to reduction requests from the memory manager, which measures how fast an algorithm can reduce its memory usage when requested to do so by the memory manager.
+%Responsiveness is particularly important in systems with frequent fluctuations in contention or with occasional high priority requests
+
+
+
+%==================================================================================================
+\section{Existing RDF Engines targeting Small Devices}
+%==================================================================================================
+For realising the current state of art of processing Linked data on mobile devices, we review existing RDF frameworks that have been specifically designed for deployment on mobile platforms and are available as open source software or Java libraries. The review also contains mobile query or storage frameworks that are built on top of the existing RDF frameworks and provide additional functions for the local querying and persistence of RDF data. 
+
+%==================================================================================================
+\subsection{Mobile RDF Frameworks}
+%==================================================================================================
+One of the first mobile RDF frameworks is Mobile RDF, which is a Java-based open source implementation for RDF data. Mobile RDF provides a simple and easy-to-use API for accessing and serializing RDF graphs. It is specifically designed for Java ME Personal Profile and Connected Device Configuration. It provides specific packages for creating, parsing, and serializing RDF/S and OWL ontologies, and supports RDF Schema type and property propagation rules as well as rule-based inferencing. However, RDF graph modifications like deleting or editing RDF triples are not supported.
+
+The Jena toolkit from HP Labs is a Java application programming interface for application developers using the Semantic Web information model and languages~\cite{mcbride:2002}. There are several works that aim at porting this toolkit to mobile devices. $\mu$Jena is one of the ports of this popular Jena Semantic Web framework; it is targeted for low-capacity mobile and embedded devices. Although its API is currently in a prototypical state and only allows for processing RDF data serialized in N-Triples format, it covers the entire set of RDF modeling primitives, provides ontology and limited inference support, as well as convenience classes for handling OWL ontologies. Like in Jena, RDF data are represented on two levels: on the lower more generic level, $\mu$Jena stores triple nodes, where a model API is deployed on top that offers convenience methods for accessing and manipulating RDF models. 
+
+The second port of Jena is Androjena. This is a recent port specifically created for the Android platform. Androjena adopts Jena version 2.2.6 with all the functions and libraries that Jena includes. It provides Android applications support for reading and writing RDF data in different serialization formats. The Androjena core libraries as the original Jena libraries do not include specific APIs for querying RDF data, persistence or support for external reasoners. However, to provide at least a minimum of query functionality, the Androjena project page also hosts the ARQoid project, which is a reduced port of Jena’s SPARQL query engine ARQ. 
+
+%==================================================================================================
+\subsection{Query and Persistence Frameworks}
+%==================================================================================================
+Semantic Web In the Pocket (SWIP)~\cite{DavidJerome:2010} is an Android-specific implementation of an RDF store. Its storage infrastructure is based on the Android internal concept of ContentProviders. In order to support application-wide data storage and exchange across applications and processes, it maps URIs to data stored in the local SQLite database deployed on Android systems and returns data in the form of triple sets or tuple tables. It employs a simple subject-predicate-object table layout for RDF data storage and is currently in prototypical status. For demonstration purposes, data stored in device-internal data sources such as calendar entries or contacts have been exposed as RDF-based Linked Data and visualized through a generic browser
+interface.
+
+The first fully-fledged RDF storage and query framework specifically for mobile devices is the RDF on the go~\cite{Danh:2010}. This system is designed and implemented for mobile devices that have the Android operating system. It follows an approach similar to Androjena. Jena core APIs and ARQ have been adapted to the Android platform to allow developers to directly operate on and manipulate RDF data models. The storage mechanism is provided by a lightweight version of Berkeley DB, which is adopted for mobile usage and deployment. The internal query processor provides support for both standard and spatial SPARQL queries, where an R-Tree-based indexing mechanism is used for storing URIs with spatial properties. 
+
+To support persistent storage of RDF data, in the project of Androidjena, there is also a port of JenaTDB to Android platforms. This version of JenaTDB is called TDBoid. With the ported non-transactional storing system of JenaTDB, TDBoid allows Android application to store and query RDF data on phones' storages. However, the performance and storage ability of TDBoid are still hidden. 
+
+
+[Add tuplestore]
+
+\section{Summary}

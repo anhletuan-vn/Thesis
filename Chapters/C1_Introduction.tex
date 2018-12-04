@@ -1,0 +1,149 @@
+\chapter{Introduction}
+\label{ch:introduction}
+\lhead{Chapter 1. Introduction(by August)}
+%---------------------------------------------------------------------------------%
+\section{Motivation}
+
+Pervasive computing and the Internet of Things(IoT) are about making our lives simpler by providing smart environments with intelligent applications, services as ubiquitous assistants~\citep{Weiser:99}. 
+The smart applications, services are built based on digital environments that are created by massive of interconnecting smart devices.
+Despite of the different focus~\citep{Ebling:2017}, on human-centric or globally, both of the visions (of IoT and pervasive computing) are recognised on the evolution of digital technologies that are related to sensing, computing and communicating technologies. 
+The smart applications, services are created with the same principle that collect real-world data from sensors, create situation context and make the respond adaptively to the context.
+
+As the real-world data is collected from a number of different devices, this is usually multi-model and diverse in nature.
+The pervasive computing and IoT often face with the lack of standardisation that related to data models and data format that is to represent, integrate and interpret such data~\citep{Miorandi:2012}. 
+Furthermore, as in the scenario, a number of highly systems, services will need to communicate autonomously.
+Providing such interoperability among the systems, services in the key enabler the smart space. 
+Therefore, one of the most fundamental challenges for pervasive system and the IoT is how to model and reason the massive of data and how to enhance the sharing and interoperability across heterogeneous devices, systems and service.
+
+A suitable solution lies in semantic technologies, particularly the Semantic Web which aims to support capturing intended semantics and automated reasoning, therefore, enabling sharing and integrating information from heterogeneous sources~\citep{Barnaghi:2012}. 
+RDF is a well established data model to describe the semantics of real data.
+As well as allowing a flexible way of integrating heterogeneous data, and RDF ontology-based context description enables better reasoning and a better sharing contextual information.
+There have been efforts  by the W3C Semantic Sensor Network~\footnote{https://www.w3.org/2005/Incubator/} and Web of Things group~\footnote{https://www.w3.org/WoT/} to lift sensory data to a semantic level using Semantic Web technologies. 
+The goal is to make sensory data available according to the Linked Data principles~\citep{Bizer:2011} that facilitates the semantic interoperability crossing smart devices, smart platforms and smart spaces~\citep{IERC:2013}. 
+
+RDF engines combine with cloud computing could provide scalable Linked Data management~\citep{Hauswirth:2017}.
+Cloud infrastructures have been considered as an unlimited capabilities storage and processing power, and the stability of cloud computing has been close the mature stage.
+Leveraging the capacity of storage and computation of the cloud, the common approaches in the IoT are to connect IoT devices to cloud where IoT data can be stored and processed.
+However, cloud computing solution alone could not completely handle the scalability issue of the IoT~\citep{Zhang:2015}.
+The end devices in the IoT are not only data consumers as in cloud computing paradigm but data producers.
+The increase of the number of the IoT devices means the quantity of produced IoT data is raising quickly.
+Most of the data can be discarded immediately after being processed.
+Hence, in these centralised systems, the bandwidth would be overwhelming and might be wasted.
+Furthermore, pushing data into cloud will dominate upstream network traffic, meanwhile, broadband networks have more downstream bandwidth than upstream bandwidth.
+Moreover, some IoT applications might require very quick response time, unfortunately, cloud-based solution may lead these applications to be less operable due to unexpected network latencies.
+In additional, IoT data might contain sensitive information from the sensors that are implanted surrounding us.
+Cloud-based systems create more privacy and security concerns as centralised storages are out of users' control.
+
+Edge computing~\citep{Salman:2015} has been the recently decentralised computing paradigm to address these issues.
+\cite{WShi:2016} explained that ``edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,
+on downstream data on behalf of cloud services and upstream data on behalf of IoT services".
+\cite{WShi:2016} also defined the ``edge" as ``any computing and network resources along the path between data sources and cloud data centres".
+Thus, the edge can be the smartphones as they are placed between sensors and cloud or the edge can be the gateway devices that connect smart devices and data centres.
+
+
+Thanks to the recent rapid development in designing embedded devices, e.g., ARM boards, IoT gateways are getting cheaper and smaller whilst more powerful.
+For example, a Raspberry PI Zero or a C.H.I.P computer costs less than 15 euro and have the size smaller than a credit card but it is powerful enough to run a fully functioning Linux distro.
+Not only having advantages in power consumption and size but also being cost-effective, the devices of this kind can be easily embedded or bundled with other IoT devices (e.g., sensors and actuators) as a processing gateway interfacing with outer networks, called \emph{edge devices}. 
+An exemplary deployment setting which can greatly benefit from these advantages is deploying a semantic integration gateway for an outdoor ad-hoc sensor network, e.g on a street or a traffic junction. 
+This gateway can be easily fitted in the lamp pole to share the power source with a street lamp powered by a small solar panel.
+In the light of embracing the pervasiveness of semantic integration gateways, we are motivated to investigate and to improve the scalability and robustness of RDF engines on this class of \emph{light weight edge devices}.
+
+Despite, their advantages in terms of power consumption, size and cost-effectiveness, lightweight edge devices are significantly underspecified in terms of the memory and CPU demands of the available RDF engines.
+Executing the data processing tasks locally on embedded devices might require much more efforts in optimising the computations or in handling limited resources. 
+However, devices can be self-contained and be able to operate in different environments. 
+Furthermore, data transmission costs can be dramatically reduced as it does not require the transfer of data from a device to a server. 
+Working independently from a remote server also avoids the requirement for devices to maintain a frequent connection. Thus, the risks caused by intermittent connectivity can be reduced.
+As device data is not stored and processed on a remote server, the privacy and security concern is also reduced. Finally, by distributing that computation among a large number of existing small but powerful devices, a greater computational scale can be achieved.
+
+\section{Problem Statement}
+
+The motivation leads to several research problems that arise when enable RDF data to be processed on the lightweight edge devices.
+The first challenging problem is creating a tailored RDF storage for this class of devices.
+Several RDF store such Jena TDB, Sesame, Virtuoso are able to operate on these devices as the computational resource on the devices is sufficient enough.
+However, they are designed and optimised for personal computers (PCs) and thus are unsuitable for directly porting to edge devices. 
+Due to the differences in computing environment between edge devices and PCs, the performance and storage ability of existing RDF engine that are implemented based-on PC design are limited. 
+
+Lightweight edge devices are distinctive from PC-based workstations in two major ways: (i) they have a significantly smaller amount of main memory and (ii) they are equipped
+with lightweight flash-based storage as a secondary memory.
+Besides integration and processing of data, network edge devices are required to execute frequent update operations. 
+For example, due to adding new devices into the network or to updating new data from connected sensors. 
+To manage large static RDF datasets, existing RDF engines build sophisticated indexing mechanisms that consume a large amount of main memory and are expensive to update.
+Directly applying the same approach on a memory-constrained device causes system paging behaviours or out-of-memory errors that heavily penalise performance.
+
+Furthermore, the I/O behaviours of flash-based storage, specifically the erase-before-write limitation, degrade the efficiency of disk-based data indexing structures and caching
+mechanisms.
+For instance, flash-based storages store in formation in arrays of electric memory cells.
+Cells are organised into pages and pages are grouped into blocks. 
+A page is the smallest unit that can be read from or written to flash memory.
+A block is the smallest structure that can be erased from such storage. 
+On flash memory, updating a single page in the block is not possible; instead one has to erase the whole block and only then newly updated data can be written to this block.
+Thus, write-in-place operation, that updates a single piece of data in a block, consists of two operations on the entire block: erase and write. 
+Due to the flash I/O behaviours, the commonly used indexing structure in RDF triple store, B$^+$ Tree, is not optimal for flash-based storage.
+
+[Therefore, ...]
+
+The second challenge is associated with the unreliable memory issue of these edge devices. 
+The lightweight devices as edge nodes might run several services.
+In many scenarios, RDF engines are used as embedded semantic databases for edge applications.
+The the memory for RDF engines is shared with other processes or with the hosted applications.
+Therefore, in runtime, the available memory for the RDF engine may be dynamic.
+
+Join is the most-used operation to answer SPARQL as it requires many joins of triples that match the triple patterns.
+Different join algorithms requires input data is organised in different ways.
+The former SPARQL query planners often select join algorithm that is suitable with the available index on the data and and query optimisers order joins to reduce the working set.
+However, they did take memory consumption into account.
+Using too much memory may result query failure or using insufficient memory may result the selected join algorithm become suboptimal.
+
+[Therefore, ...]
+
+Another challenge is how to enable the federation ...
+
+
+
+\section{Thesis Contribution}
+
+\subsubsection*{Flash-Awareness RDF Storage for Lightweight Edge Devices}
+
+
+\subsubsection*{Memory Adaptive SPARQL Query Processing}
+
+\subsubsection*{Federation Framework for Edge IoT}
+
+\newpage
+\section{Thesis Outline}
+
+\textbf{Background: }
+The background chapter describes the basic concepts of the IoT, the Semantic Web and basic techniques for RDF data management.
+Section 2.1 provides the visions of the IoT and two emergent research topics in the IoT: describing the semantic for IoT and distributing computations among IoT nodes(edge computing).
+After highlighting the promising of the Semantic Web in providing semantic annotating and processing for IoT data, the core technologies of the Semantic Web are introduced in Section 2.2. 
+In this section, the RDF data model, Knowledge inference and the query language for RDF data are presented. 
+For the understanding the possibility of processing RDF data on the edge devices, Section 2.3 introduces basic techniques for managing RDF data. 
+The section provides an overview of how RDF data can be stored and queried from database management perspective.
+
+\textbf{Literature Review}
+In this section, we review database techniques that are relevant to IoT devices and building RDF engines. 
+Section 3.1 introduce the characteristics of IoT devices.
+This is critical important topic, because,  designing a database would need a brief understanding of the behaviours of the machines on which it runs.
+As section 3.1 highlights the two distinctive characteristics (memory limitation and using flash-based storage) of the high-end IoT edge devices(that the thesis targets), Section 3.2 reviews the related works on database techniques that have been developed and could be used for creating RDF engine.
+Section 3.3 presents several attempts to create RDF engine for small devices including sensors, smart phones.
+
+\textbf{Empirical Study}
+Several PC-based RDF engines can operate on the high-end IoT devices as computation resource of the high-end IoT edge devices is somehow sufficient enough.
+This section provide a brief evaluation of PC-based RDF engines when running on these devices.
+The evaluation is conducted in the IoT context. 
+This section clarifies the concern of the need of the new design for RDF engines for this class of devices.
+
+\textbf{Flash-Aware RDF Storage}
+
+This section provide our solution to improve the performance of RDF storage for the high-end IoT devices by create flash-aware data structure for RDF data and flash-aware buffer management for managing the writes.
+
+\textbf{Adaptive Strategy for Iterative Join Execution}
+
+This section provide our solution for adaptive execution the joins in SPARQL.
+As memory is limited on edge devices, the joins should optimised to reduce the memory consumption. 
+Among the join algorithms for RDF data, nested index loop join(NILJ) consumes memory the less.
+Our solution is based on NILJ and push based model to allow the adaptivity reordering the joins at runtime according to the data cached in the buffer. 
+
+\textbf{Federation over edge nodes}
+
+This section will provide framework allowing data federation among gateways.
