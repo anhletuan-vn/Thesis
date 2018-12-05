@@ -77,93 +77,114 @@ IoT devices and IoT data can be efficiently discoverable and searchable by provi
 Adding meaningful description for IoT data would also allow the data to be understandable to machines and software agents, thus facilitating the automated interaction among IoT devices and interoperability among existing IoT platforms~\citep{IERC:2015, Ganzha:2017}. 
 Moreover, with semantic annotated data, IoT systems could better understand the context, thus creating smarter services~\citep{Perera:2014a}. 
 
-
-
-
-
+Nowadays, the IoT continues developing towards the transformation of everyday physical objects into ecosystems of information, but with new demands and requirements~\citep{Vermesan:2018}.
+Recent data technologies such as data analytics, machine learning and artificial are involving the IoT to enhance the knowledge extraction, automation and decision making. 
+Additionally, the new requirements of reducing the latency for IoT application have been addressed in order to provide
+real-time interactive systems between human and machine.
+The development novel networking technology such as 5G network has been starting to provide faster communication.
+The processing power is still increasing to allow the new distributed architectures and solutions for the real-time interactions of human and the IoT.  
 
 \section{IoT Technologies}
 
+The previous section has introduced the vision and the mission of the IoT. 
+In order to provide a better overview of the components and the functionalities of the IoT, this section provide the core technologies that build up the IoT. 
+According to ~\cite{Al-Fuqaha:2015}, there are six core elements needed to provide the functionality for the IoT as illustrated in Figure~\ref{fig:2.2-technologies}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.30]{Pictures/c2/6-elements.png}
+    \caption{Iot Elements~\citep{Al-Fuqaha:2015}}
+    \label{fig:2.2-technologies}
+\end{figure}
 
 
 \subsection{Identification}
 
-Identification is crucial for the IoT to name and match
-services with their demand. Many identification methods are
-available for the IoT such as electronic product codes (EPC) and
-ubiquitous codes (uCode) [21]. Furthermore, addressing the
-IoT objects is critical to differentiate between object ID and its
-address. Object ID refers to its name such as “T1” for a particular
-temperature sensor and object’s address refers to its address
-within a communications network. In addition, addressing
-methods of IoT objects include IPv6 and IPv4. 6LoWPAN [22],
-[23] provides a compression mechanism over IPv6 headers
-that makes IPv6 addressing appropriate for low power wireless
-networks. Distinguishing between object’s identification and
-address is imperative since identification methods are not globally
-unique, so addressing assists to uniquely identify objects.
-In addition, objects within the network might use public IPs
-and not private ones. Identification methods are used to provide
-a clear identity for each object within the network.
+Identification is critically important for any system that requires the interaction between different components. 
+The identification of each component in a system is needed to ensure the correct integration of the system.
+The IoT could be seen as a global interaction system and its components are users, services, devices and physical objects.
+Therefore, ``things" in the IoT must be identified in order to enable such interaction.
 
-- URIs 
+%[Challenges]
+Due to the continuous increase of the connected devices, providing scalable addressing and identification mechanism is challenging for the IoT. 
+The designs of such mechanisms also have to cope to the heterogeneity of the ``things" which could be physical objects or virtual objects. 
+Physical objects such as wireless sensors, mobile devices, computers are associated with identifiers such as host names, IP addresses.
+Whereas, virtual objects could be identified by the mechanisms, for example, ULRs (Universal Resource Locators) for identifying web services, or DOIs (Digital Objects Identifiers) for referencing digital documents.
+The identification for the IoT would be required to address the full range of physical and virtual objects.
 
-Device/Objects/Things Identification, Addressing, and
-Discovery: Scalable addressing and identification mechanisms
-are required for IoT because of the continuous increase in the
-number of connected devices. Moreover, the design of such
-scalable mechanisms is being challenged by the heterogeneity
-of devices, which are configured with the IP as well as
-a non-IP addressing format. Therefore, the primary goal of
-research efforts in this area is to address the challenges of
-device identification and addressing by designing lightweight
-protocols and schemes that support flexible address allocation,
-address collision or duplicate address detection (for security),
-address recycling, address translation, and auto-configuration
-of addresses by devices. Such addressing protocols are necessary
-for scalable and seamless ubiquitous connectivity in the
-IoT ecosystem.
+\cite{Presser:2016} reported the available identification methods in the IoT. 
+These methods serve different purposes and operate at different layers.
+IoT identifiers can be classed into: 
+(i) Objects identifiers which are simply used for defining the unique of physical/virtual objects;
+(ii) Communication identifiers which are used to uniquely identify connected objects in the context of communications with other objects;
+(iii) Application identifiers which are used to identify services, applications. 
+The examples of identifiers for the IoT are provided in Table~\ref{tab:IoTIds}
 
-Furthermore, as indicated in ISO 15459, multiple
-established name issuing authorities
-exist and it is important that the Internet of
-Things recognises their legitimate but nonexclusive
-involvement in the construction of
-unique identifiers for things and in helping to
-manage delegation of uniqueness of the identifiers
-created by their members, each of
-whom is thereby granted the autonomy to
-create unique identifiers within their own
-namespace; it should also be possible for
-anyone to use Uniform Resource Identifiers
-(URI) as unique identifiers for things.
-It is important to understand that identifiers
-can refer to names and addresses, but since
-there can be multiple addresses of information
-and services related to an individual
-thing, it is probably more helpful to ensure
-that each thing is given a unique name and to
-use lookup mechanisms and referral services
-to obtain addresses of information and services,
-including those provided authoritatively
-by the thing's creator and those contributed
-by others who have interacted with
-the thing at some time in its life. In the case
-of the existence of multiple identifiers for a
-single object due to different reasons a
-scheme for ID data translation and dynamic
-compatibility/interoperability check is necessary
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{ | c | c |}
+       \hline
+       Identifier Type  &  Examples  \\
+       \hline
+       Application Identifiers  &  URIs, URLs \\
+       \hline
+       Communication Identifiers & IPv4, IPv6, E.164 \\
+       \hline
+       Object Identifiers &  EPC, UPC, DOI, UUID, URI, IOD, CID \\
+       \hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:IoTIds}
+\end{table}    
 
 
-Depending on various technologies for the implementation,
-the definition of the IoT varies. However, the fundamental
-of IoT implies that objects in an IoT can be identified
-uniquely in the virtual representations. Within an IoT, all
-things are able to exchange data and if needed, process data
-according to predefined schemes.
-
+According to ~\cite{Presser:2016}, IoT identification is closely associated to functionalites: naming, addressing and discovering. 
+Naming means assigning labels or attributes to objects or a group of objects to individualise or specify them among larger set of objects.
+Addressing is to assigning addresses for connected objects within a communication network.
+Addressing also provide the means for mapping of the identifiers at different layers to the communication identifiers.
+IoT discovering is the process of locating devices, services or data. 
+There are various approaches for the discovery in the IoT, for example, geographic location‐based discovery approach~\citep{Dinh:2017}, semantic web‐based discovery approach~\citep{Serena:2017}.
 
 \subsection{Sensing}
+
+A sensor is a very broad term used to describe an object
+that can acquire data. However, the variety of sensors is a big
+part of IoT, and so it deserves a discussion. Presented are a
+few examples of sensors to give the reader an idea of how they
+can be used in IoT. This list is not exhaustive.
+
+One type of sensors is biosensors. According to [17],
+“biosensors are a sub group of chemical sensors in which are
+analytical devices composed of a biological recognition ele-
+ment (such as enzyme, antibody, receptor, or microorganisms)
+coupled to a chemical or physical transducer (electrochemical,
+mass, optical and thermal).” Smart biosensors can be integrated
+with signal processing circuitry to provide technical advantages
+for medical purposes [18]. A subgroup of biosensors is optical
+biosensors, of which there are two types: fluorescence-based
+detection and label-free detection. In fluorescence-based de-
+tection, fluorescent tags (such as dyes) are used as labels for
+either target molecules or bio-recognition molecules. This type
+of detection is very sensitive, where the detection limit can
+go down to a single molecule. However, labeling processes
+are complex, and they may introduce interference with a
+biomolecules function. Label-free detection does not alter the
+target molecule, and detection is cheap and simple [19].
+
+While both RFID and sensors are used for data acquisition,
+they are used for different purposes. The main difference would
+be the type of data being acquired. RFID is used mainly for
+identification purposes, to identify a certain object that is being
+sensed. Its data is set and stored on the tag. On the other
+hand, sensors are used to obtain measurements of physical
+parameters such as the presence of certain biological entities
+(biosensors), wavelengths of light (image sensors), and flow
+velocity (thermal flow sensors). Whereas RFID tags contain
+set data within the memory of the tags computer chip, sensors
+sense real physical parameters of the environment around
+them.
+
+wireless sensor
 
 The IoT sensing means gathering data from related objects
 within the network and sending it back to a data warehouse,
@@ -174,6 +195,7 @@ companies like Wemo, revolv and SmartThings offer smart
 hubs and mobile applications that enable people to monitor
 and control thousands of smart devices and appliances inside
 buildings using their smartphones [24]–[26].
+
 Single Board Computers (SBCs) integrated with sensors and
 built-in TCP/IP and security functionalities are typically used
 to realize IoT products (e.g., Arduino Yun, Raspberry PI, BeagleBone
