@@ -61,7 +61,7 @@ In 2005, the ITU Internet Reports phrased the IoT vision as ``from anytime, anyp
 The researches on the Internet-oriented vision attempted to extend the ``Internet of computers" to the ``Internet for everyday objects"~\citep{Mattern:2010}.
 For bringing the Internet into a physical infrastructure, the Internet $\emptyset$~\citep{Gershenfeld:2006} simplified the Internet Protocol(IP) to adapt to any object.
 Internet Protocol for Smart Objects(IPSO)~\citep{Dunkels:2008} proposed 6LoWPAN protocol for the connectivity on the devices that have limited processing capabilities.
-IPv6 could provide larger IP space for the huge number of physical objects and 6LoWPAN allowed IPv6 packets to be transmit over low power wireless IEEE 802.15.4 links.
+IPv6 could provide larger IP space for the huge number of physical objects and 6LoWPAN allowed transmitting IPv6 packets over low power wireless IEEE 802.15.4 links.
 
 From the Internet-oriented perspective, the IoT would be seen as an integrated part of the ``Future Internet", people and thing would be connected ``Anytime, Anyplace, with Anything and Anyone, ideally using Any path/network and Any service"~\citep{Sundmaeker:2010}.
 In this context, ``thing" could be a real/physical entity or digital/virtual entity.
@@ -84,7 +84,9 @@ real-time interactive systems between human and machine.
 The development novel networking technology such as 5G network has been starting to provide faster communication.
 The processing power is still increasing to allow the new distributed architectures and solutions for the real-time interactions of human and the IoT.  
 
+%=======================================================================================
 \section{IoT Technologies}
+%=======================================================================================
 
 The previous section has introduced the vision and the mission of the IoT. 
 In order to provide a better overview of the components and the functionalities of the IoT, this section provide the core technologies that build up the IoT. 
@@ -99,6 +101,7 @@ According to ~\cite{Al-Fuqaha:2015}, there are six core elements needed to provi
 
 
 \subsection{Identification}
+\label{ss:identification}
 
 Identification is critically important for any system that requires the interaction between different components. 
 The identification of each component in a system is needed to ensure the correct integration of the system.
@@ -145,210 +148,209 @@ Addressing also provide the means for mapping of the identifiers at different la
 IoT discovering is the process of locating devices, services or data. 
 There are various approaches for the discovery in the IoT, for example, geographic location‐based discovery approach~\citep{Dinh:2017}, semantic web‐based discovery approach~\citep{Serena:2017}.
 
-\subsection{Sensing}
+\subsection{Sensor Networks}
 
-A sensor is a very broad term used to describe an object
-that can acquire data. However, the variety of sensors is a big
-part of IoT, and so it deserves a discussion. Presented are a
-few examples of sensors to give the reader an idea of how they
-can be used in IoT. This list is not exhaustive.
+%what is sensing
+Sensing technologies are the key enablers of the integration of physical world and the virtual world.
+Sensors are the electronic devices that can detect events, changes in its environment or measure the quantity of the physical properties.
+By converting the signals from physical stimuli into digital form that is readable by machines, sensors allow the IoT understand the environmental characteristics surrounding physical things.
 
-One type of sensors is biosensors. According to [17],
-“biosensors are a sub group of chemical sensors in which are
-analytical devices composed of a biological recognition ele-
-ment (such as enzyme, antibody, receptor, or microorganisms)
-coupled to a chemical or physical transducer (electrochemical,
-mass, optical and thermal).” Smart biosensors can be integrated
-with signal processing circuitry to provide technical advantages
-for medical purposes [18]. A subgroup of biosensors is optical
-biosensors, of which there are two types: fluorescence-based
-detection and label-free detection. In fluorescence-based de-
-tection, fluorescent tags (such as dyes) are used as labels for
-either target molecules or bio-recognition molecules. This type
-of detection is very sensitive, where the detection limit can
-go down to a single molecule. However, labeling processes
-are complex, and they may introduce interference with a
-biomolecules function. Label-free detection does not alter the
-target molecule, and detection is cheap and simple [19].
+In order to increase the capability of observing the physical world in the IoT, multiple sensors are formed sensor networks.
+%They are widely used for many purposes ranging from environment monitoring to health care or military. 
+In the sensors networks, sensors can communicate with each other via wire or wireless connectivity. 
+With the better mobility and lower cost, wireless sensors are more attractive for deploying sensor networks~\citep{Sheng:2015}.
 
-While both RFID and sensors are used for data acquisition,
-they are used for different purposes. The main difference would
-be the type of data being acquired. RFID is used mainly for
-identification purposes, to identify a certain object that is being
-sensed. Its data is set and stored on the tag. On the other
-hand, sensors are used to obtain measurements of physical
-parameters such as the presence of certain biological entities
-(biosensors), wavelengths of light (image sensors), and flow
-velocity (thermal flow sensors). Whereas RFID tags contain
-set data within the memory of the tags computer chip, sensors
-sense real physical parameters of the environment around
-them.
-
-wireless sensor
-
-The IoT sensing means gathering data from related objects
-within the network and sending it back to a data warehouse,
-database, or cloud. The collected data is analyzed to take speci-
-fic actions based on required services. The IoT sensors can be
-smart sensors, actuators or wearable sensing devices. For example,
-companies like Wemo, revolv and SmartThings offer smart
-hubs and mobile applications that enable people to monitor
-and control thousands of smart devices and appliances inside
-buildings using their smartphones [24]–[26].
-
-Single Board Computers (SBCs) integrated with sensors and
-built-in TCP/IP and security functionalities are typically used
-to realize IoT products (e.g., Arduino Yun, Raspberry PI, BeagleBone
-Black, etc.). Such devices typically connect to a central
-management portal to provide the required data by customers.
-
+%raw data need to be describe
 
 \subsection{Communication}
 
-The IoT communication technologies connect heterogeneous
-objects together to deliver specific smart services. Typically, the
-IoT nodes should operate using low power in the presence of
-lossy and noisy communication links. Examples of communication
-protocols used for the IoT are WiFi, Bluetooth, IEEE
-802.15.4, Z-wave, and LTE-Advanced. Some specific communication
-technologies are also in use like RFID, Near Field Communication
-(NFC) and ultra-wide bandwidth (UWB). RFID is
-the first technology used to realize the M2M concept (RFID
-tag and reader). The RFID tag represents a simple chip or label
-attached to provide object’s identity. The RFID reader transmits
-a query signal to the tag and receives reflected signal from the
-tag, which in turn is passed to the database. The database connects
-to a processing center to identify objects based on the re-
-flected signals within a (10 cm to 200 m) range [27]. RFID tags
-can be active, passive or semi-passive/active. Active tags are
-powered by battery while passive ones do not need battery.
-Semi-passive/active tags use board power when needed.
-The NFC protocol works at high frequency band at 13.56 MHz
-and supports data rate up to 424 kbps. The applicable range is
-up to 10 cm where communication between active readers and
-passive tags or two active readers can occur [28]. The UWB communication
-technology is designed to support communications
-within a low range coverage area using low energy and high
-bandwidth whose applications to connect sensors have been
-increased recently [29].
-Another communication technology is WiFi that uses radio
-waves to exchange data amongst things within 100 m range
-[30]. WiFi allows smart devices to communicate and exchange
-information without using a router in some ad hoc configurations.
-Bluetooth presents a communication technology that is
-used to exchange data between devices over short distances using
-short-wavelength radio to minimize power consumption [31].
-Recently, the Bluetooth special interest group (SIG) produced
-Bluetooth 4.1 that provides Bluetooth Low Energy as well as
-high-speed and IP connectivity to support IoT [32]. The IEEE
-802.15.4 standard specifies both a physical layer and a medium
-access control for low power wireless networks targeting reliable
-and scalable communications [33].
+\subsubsection{Wireless Network Technologies}
 
-LTE (Long-Term Evolution) is originally a standard wireless
-communication for high-speed data transfer between mobile
-phones based on GSM/UMTS network technologies [34]. It
-can cover fast-travelling devices and provide multicasting and
-broadcasting services. LTE-A (LTE Advanced) [35] is an improved
-version of LTE including bandwidth extension which
-supports up to 100 MHz, downlink and uplink spatial multiplexing,
-extended coverage, higher throughput and lower latencies
+%[Low-range]
 
-\subsection{Computation}
+\textbf{Near Field Communication} is low-range wireless connectivity technology which allows small data to be transmitted over distance of few centimetres. 
+Similarly to RFID, NFC transfers data by generating magnetic field and operates over a frequency band of 13.56 MHz.
+However, NFC allows both one-way and two-way communications between two devices.
+Furthermore, NFC has two operating modes: active and passive.
+In active mode, both the sender and the receiver  generating their own fields.
+Passive mode is useful for saving energy as only one device generates the field, and the other answers by modulating the existing field.
 
-Processing units (e.g., microcontrollers, microprocessors,
-SOCs, FPGAs) and software applications represent the “brain”
-and the computational ability of the IoT. Various hardware platforms
-were developed to run IoT applications such as Arduino,
-UDOO, FriendlyARM, Intel Galileo, Raspberry PI, Gadgeteer,
-BeagleBone, Cubieboard, Z1, WiSense, Mulle, and T-Mote Sky.
-Furthermore, many software platforms are utilized to provide
-IoT functionalities. Among these platforms, Operating Systems
-are vital since they run for the whole activation time of a
-device. There are several Real-Time Operating Systems (RTOS)
-that are good candidates for the development of RTOS-based IoT
-applications. For instance, the Contiki RTOS has been used
-widely in IoT scenarios. Contiki has a simulator called Cooja
-which allows researcher and developers to simulate and emulate
-IoT and wireless sensor network (WSN) applications [36].
-TinyOS [37], LiteOS [38] and Riot OS [39] also offer light
-weight OS designed for IoT environments. Moreover, some
-auto industry leaders with Google established the Open Auto
-Alliance (OAA) and are planning to bring new features to the
-Android platform to accelerate the adoption of the Internet of
-Vehicles (IoV) paradigm [40]. Some features of these operating
-systems are compared in Table I.
-Cloud Platforms form another important computational part
-of the IoT. These platforms provide facilities for smart objects
-to send their data to the cloud, for big data to be processed
-in real-time, and eventually for end-users to benefit from the
-knowledge extracted from the collected big data. There are a
-lot of free and commercial cloud platforms and frameworks
-available to host IoT services. Some of these services are
-introduced in Section VII-B.
+\textbf{Bluetooth} is the wireless technology that uses short-wavelength UHF radio for exchanging data over short distance.
+Compared to NFC, Bluetooth supports broadcasting and provides wider range connectivity with higher frequency and data throughput. 
+\textit{Classic Bluetooth} offers enough throughput for data stream application, however, it has several limitations including limited number of nodes in the network.
+\textit{Bluetooth Low Energy} or ``\textit{Bluetooth smart}" is advanced over Classic Bluetooth.
+It consumes less energy, supports unlimited number of nodes, however, it does not support data streaming and offers lower data rate.
+The recent version, \textit{Bluetooth 5.0}, increase the communication range up to 300m and doubles the speed of the low energy connections. 
+
+\textbf{Zigbee} is another low-cost, low-power wireless technology which is based on IEEE 802.15.4 communication protocol.
+Compared to Bluetooth or NFC, it offers lower data transferring rate but  much wider communication range.
+Depending on power output, outdoors with line-of-sight of Zigbee may range up to 1500m.
+Zigbee devices are of there types: Zigbee Coordinator(ZC), Zigbee Router(ZR), Zigbee End Device (ZED).
+ZED devices are the simplest devices in Zigbee networks, they just have basic functionalities to communicate with its parent which can be ZC or ZR. 
+In a Zigbee network, ZC device is the most capable device whose roles are the root of the network and the bridge to other networks.
+Whereas, ZR devices are the intermediate routers for passing data from devices to devices internally. 
+
+\textbf{Z-Wave} is popularised as low-power wireless communication technology for Home Automation Networks.
+It covers about 30 meters point-to-point communication, therefor, being widely used in remote applications in smart homes.
+Z-wave operates in ISM band around 900MHz and the recent version supports transmission rate up to 200Kbps.
+
+\textbf{Low Power WiFi} is also known as ``WiFi HaLow", which is based on IEEE 802.11ah standard.
+The development of WiFi HaLow attempts to extend the range of transmission and to reduce the energy consumption for the WiFi.
+Compared to conventional WiFi(IEEE 802.11 b/g/n), the range that HaLow can communicate is doubled.
+Wireless sensor networks are the motivated scenarios of HaLow, in which, the devices are energy constrained and require relatively long range connectivity. 
+
+\textbf{Low Power Wide Area Network (LPWAN)}  is a class of the very long range wireless technologies that are suitable for low power application. They can support up to 10 Km distance, however, very low data rate. The technologies in this class include SigFox, LoRaWan and Weightless. 
+
+\textbf{Cellular networks} such as 3G,4G, LTE can provide high-speed connectivity to the Internet for mobile devices. These technologies are based on GSM/UMTS technologies, providing multicasting and broadcasting for fast-travelling devices.
+However, they have high power consumption profile.
+The under-developing 5G network is expected to be rolled out by 2020 which targets high data rate, reduced latency, energy saving, cost reduction, higher system capacity, and massive device connectivity
+
+\begin{table}[ht!]
+    \centering
+    \footnotesize
+    \begin{tabular}{ c c | c | c | c | c | c | c | c | c |c |}
+    \cline{3-10}  &  & {\multirow{2}{*}{NFC}} & {\multirow{2}{*}{Bluetooth}} & {\multirow{2}{*}{Zigbee}} & {\multirow{2}{*}{Z-Wave}} &  {\multirow{2}{*}{LP-Wifi}} & {\multirow{2}{*}{LPWAN}} & {\multicolumn{2}{*}{Cellular networks}}\\
+    \cline{5-6}
+     & & & & & & & 3G & LTE \\
+    \hline                                     
+    %\multicolumn{1}{|c|}{\multirow{2}{*}{Range}} & indoor & \multirow{2}{*}{\textless 0.2 m} & \multirow{2}{*}{1-300 m} & \textless 20 m & \multirow{2}{*}{NA} & \multirow{2}{*}{\textless 10km} & \multirow{2}{*}{\textgreater 5km} & \multirow{2}{*}{\textgreater 5km} \\
+    %\cline{2-2}\cline{5-5}
+    %\multicolumn{1}{|c|}{} & outdoor & & & \textless 1500 m &  &   & & & \\
+    %\hline
+    %\multicolumn{2}{|c|}{Rate\newline[Mpbs]} & 0.4 & 1-3 & 0.25 &  0.15-40 & \textless 0.05 & 0.17 & 75-300 & \\
+    %\hline
+    %\multicolumn{2}{|c|}{Thr. \newline[Mpbs]} & 0.22 & 0.30 -1.5 & 0.15  & \textgreater 0.1 & \textless0.05 & \multicolumn{2}{c|}{NA} & \\
+    %\hline
+    %\multicolumn{2}{|c|}{Freq. [GHz]} & 0.14 & 2.4 - 2.5 & 2.4 & 0.9 & sub-GHz & 0.8-1.9 & 2.1 & \\
+    %\hline
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+\subsubsection{Network Protocols}
+
+The full conventional IP suite is very complex and requires a large amount resource on the connecting devices.  
+Therefore, the Internet Engineering Task Force(IETF) and IPSO Alliance have been developing alternatively protocols for resource constrained devices in the IoT~\citep{Ishaq:2013, alliance:2011}. 
+
+The IEEE 802.15.4 protocol is designed as a standard for physical and link layers for low-rate wireless personal area networks(PL-WPAN).
+To cope with resource constrained environment, it comes with a small frame size, low bandwidth and low transmit power.
+Therefore, this protocol can support low power consumption, low data rate, low cost and high message throughput for devices that need a long battery life.
+
+In the Internet layer, IPv6 can provide larger IP addressing space for the large number of IoT devices. 
+However, IPv6 was initially developed not thought to be suitable for low-power wireless links.
+6LoWPAN which is an acronym of IPv6 over Low-Power Wireless Personal Area Networks provides an adaption layer that allows IPv6 packet to be transmitted over IEEE 802.15.4 links.
+To connect with the Internet, 6LoWPAN networks requires a gateway to convert IPv6 and IPv4 as today’s deployed Internet is mostly IPv4. 
+The header of IPv6 is lager than the \textit{maximum transmission unit}(MTU) of 802.15.4, 6LoWPAN proposes the following optimisation:
+(i) Compressing the header of IPv6 by deleting some of the fields that can be derived from link level and be shared across packets;
+(ii)Fragmenting the IPv6 packets into small packets;
+(iii) Forwarding to link-layer to support routing and multi-hop delivery.
+
+In the Network layer, the IETF Routing over Low Power and Lossy Networks(ROLL) working group standardised a routing protocol based on IPv6 for resource constrained node called RPL.
+RPL was optimised to meet only the minimal routing requirements over lossy links while supporting from simple to complex routing topology.
+
+
+%[rewrite]
+The application layer is responsible for data formatting and presentation.
+The application layer in the Internet is typically based on HTTP. 
+However, HTTP is not suitable in resource constrained environments because it is fairly verbose in nature and thus incurs a large parsing overhead.
+
+
+The \textit{IETF Constrained RESTful Environments} (CoRE) working group created \textit{Constrained Application Protocol} (CoAP) that simplifies the HTTP to meet the resource constrained environment of the IoT. 
+CoAP also uses REST principles on top of HTTP functionalities, utilises methods such as GET, PUT, POST and DELETE to perform Create, Retrieve, Update and Delete (CRUD) operations.
+Therefore, CoAP can be considered as an alternative version of HTTP.
+However, to be suitable for resource constrained applications, CoAP is bound UDP rather than TCP.
+Unlike HTTP, CoAP uses  EXI (Efficient XML Interchanges) data format, which is space efficient comparing to plain text HTML/XML.
+A typical CoAP message can be between 10 to 20 bytes.
+
+%Moreover, CoAP can easily translate to HTTP for simplified integration with the web, while also meeting specialised requirements such as multicast support, very low overhead and simplicity
+
+
+\textit{Message Queue Telemetry Transport} (MQTT) is application protocol for messaging developed by IBM.
+MQTT is built on top of TCP with a publish/subscribe pattern.
+It consists of three components: subscriber, publisher and broker.
+The publisher and the subscriber are registered to send/receive data to/from a specific topic.
+The broker handles data transmission between publisher and subscriber that are registered to the same topic.
+The connection operation uses a routing
+mechanism (one-to-one, one-to-many, many-to-many) and enables
+MQTT as an optimal connection protocol for the IoT
+and M2M.
+The initial version of MQTT only operates over TCP which cannot be used with all types of IoT devices, and the topic name 
+is represented in text that increases its overhead.
+The latter version of MQTT-SN was optimised the earlier version for sensor networks and constraint devices.
+It supports UDP mapping and indexing on topic names. 
+It is designed for small code footprints and can be implemented in devices with less than 64kb of RAM
+
+\subsection{IoT hardware and software}
+
+Computational units are the atomic components of the IoT, various hardware platforms and software were developed to run IoT applications. 
+Recent advances in the technologies of embedded processor have increased the processing capabilities of IoT devices.
+Many devices now can be deployed in network via different communication technologies.
+Based on the computational capability, IoT devices can be categorised into two categories: \textit{low-end}  and \textit{high-end}.
+The low-end IoT devices are very constrained in terms of resources including energy, CPU(less than 100MHz) and memory capacity (less than 100 kB).
+Popular examples of devices in such category include 
+Arduino~\footnote{https://www.arduino.cc/}, 
+Zolertia~\footnote{https://zolertia.io/}, 
+OpenMote node~\footnote{http://www.openmote.com/}, etc.
+The second category consist in high-end IoT devices, which includes single-board computer such as Raspberry Pi~\footnote{https://www.raspberrypi.org/}, 
+Beagle Bone board~\footnote{https://beagleboard.org/bone} or 
+smartphones.
+The high-end devices are more powerful than the low-end devices.
+They have enough resources and adequa~\citep{Botta:2016}te characteristic to run software based on tradition operating systems such Linux or BSD. 
+
+
+Furthermore, many IoT software platforms are utilised to provide programming frameworks, programming frameworks, ma-chine-to-machine (M2M) integration, data and device management, security and storage, and protocol translation. 
+Several real-time operating systems were specifically developed for the limited resource devices such as low-end IoT devices.
+The list of the available of operation systems for IoT can be found in ~\citep{}.
+Among of these operating systems, the Contiki~\citep{}, TinyOS~\citep{}, LiteOS~\citep{} and Riot OS~\citep{} have been used widely in many IoT scenarios. 
+
+
+Moreover, cloud infrastructure is another important computational resource for the IoT~\citep{Botta:2016}.
+The cloud computing has been a mature technology and has been considered as an unlimited capabilities storage and processing power.
+The IoT also has been integrated with the cloud computing that introducing the \textit{``Cloud of Things"}~\citep{Jiehan:2013} or the ~\textit{``IoT Cloud"}~\citep{Truong:2015}.
+These cloud-based systems allow IoT data to be uploaded into cloud, and after being processed, the requesting results are sent back to the IoT devices or IoT applications.
+There many cloud platforms and frameworks available to host IoT services such as IBM IoT, Oracle IoT cloud or Microsoft research Lab of Things~\citep{}.
 
 \subsection{Services}
 
-Overall, IoT services can be categorized under four classes
-[41], [42]: Identity-related Services, Information Aggregation
-TABLE II
-BUILDING BLOCKS AND TECHNOLOGIES OF THE IOT
-Services, Collaborative-Aware Services and Ubiquitous Services.
-Identity-related services are the most basic and important
-services that are used in other types of services. Every
-application that needs to bring real world objects to the virtual
-world has to identify those objects. Information Aggregation
-Services collect and summarize raw sensory measurements
-that need to be processed and reported to the IoT application.
-Collaborative-Aware Services act on top of Information Aggregation
-Services and use the obtained data to make decision and
-react accordingly. Ubiquitous Services, however, aim to provide
-Collaborative-Aware Services anytime they are needed to anyone
-who needs them anywhere. With this categorization, we review
-some applications of the IoT in the following paragraphs.
-The ultimate goal of all IoT applications is to reach the level of
-ubiquitous services. However, this end is not achievable easily
-since there are a lot of difficulties and challenges that have to be
-addressed. Most of the existing applications provide identityrelated,
-information aggregation, and collaborative-aware services.
-Smart healthcare and smart grids fall into the information
-aggregation category and smart home, smart buildings, intelligent
-transportation systems (ITS), and industrial automation
-are closer to the collaborative-aware category.
+There four classes of IoT services that are available in many researches references: ~\textit{Identity-related Services}, \textit{Information Aggregation Services}, ~\textit{Collaborative-Aware Services} and ~\textit{Ubiquitous Services}~\citep{Mohammed:2015}.
+Identify-related services are the most basic but important services. 
+As presented in Section~\ref{ss:identification}, every device that connected to the IoT network has to be identified.
+Therefore, every application, service in the IoT requires this type of services to identify the things that are involving. 
+Raw sensory data is collected, processed and reported to the to IoT application using Information Aggregation services. 
+Collaborative-Aware services are the smart services that can make smart decisions.
+These services are often built on top of the Information Aggregation services and able to react accordingly to information provided by the Information Aggregation services.
+Ubiquitous services aim to provide Collaborative-Aware services to anyone, from anywhere, at anytime.
+The ultimate goal of all IoT applications is to enable the Ubiquitous services.
+However, this goal is not easy to achieve, most of the existing applications provide identity related, information aggregation, and collaborative-aware services~\citep{Al-Fuqaha:2015}.
+A \textit{smart city}~\citep{Jin:2014, Zanella:2014} which could be seen as an application of ubiquitous services, aims to improve the quality of life in the city by making it easier an more convenient for the residents to find information of interest.
 
 \subsection{Semantic}
-Semantic in the IoT refers to the ability to extract knowledge
-smartly by different machines to provide the required services.
-Knowledge extraction includes discovering and using resources
-and modeling information. Also, it includes recognizing and
-analyzing data to make sense of the right decision to provide
-the exact service [62]. Thus, semantic represents the brain of the
-IoT by sending demands to the right resource. This requirement
-is supported by Semantic Web technologies such as the Resource
-Description Framework (RDF) and the Web Ontology
-Language (OWL). In 2011, the World Wide Web consortium
-(W3C) adopted the Efficient XML Interchange (EXI) format as
-a recommendation [63].
-EXI is important in the context of the IoT because it is designed
-to optimize XML applications for resource-constrained
-environments. Furthermore, it reduces bandwidth needs without
-affecting related resources such as battery life, code size,
-energy consumed for processing, and memory size. EXI converts
-XML messages to binary to reduce the needed bandwidth
-and minimize the required storage size.
-Remarks: In this section, the main components of the IoT
-were identified along with their related standards, technologies
-and realizations. The variety of standards and technologies in
-these elements and the way they should interoperate is a main
-challenge that can impede the development of IoT applications.
-The heterogeneity of the IoT elements needs a thorough solution
-to make ubiquitous IoT services a reality. Section VIII
-addresses this problem by proposing an architectural model that
-alleviates the interoperability issues caused by the diversity of
-protocols and technologies utilized in the context of the IoT.
 
+Semantic in the IoT refers to the ability to extract knowledge smartly by different machines to provide the required services.
+Knowledge extraction includes discovering and using resources and modeling information.
+Also, it includes recognizing and analyzing data to make sense of the right decision to provide the exact service [62]. 
+Thus, semantic represents the brain of the IoT by sending demands to the right resource. 
+This requirement is supported by Semantic Web technologies such as the Resource Description Framework (RDF) and the Web Ontology
+Language (OWL).
+In 2011, the World Wide Web consortium (W3C) adopted the Efficient XML Interchange (EXI) format as a recommendation [63].
+EXI is important in the context of the IoT because it is designed to optimize XML applications for resource-constrained environments. 
+Furthermore, it reduces bandwidth needs without affecting related resources such as battery life, code size, energy consumed for processing, and memory size. 
+EXI converts XML messages to binary to reduce the needed bandwidth and minimize the required storage size.
+
+
+
+%=======================================================================================
 \section{IoT Architectures}
-ummarizing, although huge efforts have been made within the IERC
+%=======================================================================================
+In this section, the main components of the IoT were identified along with their related standards, technologies and realizations.
+The variety of standards and technologies in these elements and the way they should interoperate is a main challenge that can impede the development of IoT applications.
+The heterogeneity of the IoT elements needs a thorough solution to make ubiquitous IoT services a reality. 
+
+Section VIII addresses this problem by proposing an architectural model that alleviates the interoperability issues caused by the diversity of protocols and technologies utilised in the context of the IoT.
+
+
+Summarizing, although huge efforts have been made within the IERC
 community for the design and development of IoT technologies, the con-
 tinuously changing IoT landscape and the introduction of new requirements
 and technologies creates new challenges or raise the need to revisit existing
@@ -434,6 +436,36 @@ This poses a challenge for the computing tasks to be physically moved to the edg
 
 
 
+
+\subsection{IoT Gateways}
+
+supporting gateway devices to bridging the short range network and wide area network, s
+
+IoT gateways primarily act as the bridge to connect sensor
+networks with traditional communication networks, having ca-
+pabilities such as protocol conversion and device management.
+Figure 1 gives an overview of IoT gateway functionalities
+resulting from the current technological trends, and we can
+see that gateways play an essential role to enable technological
+interoperability. Nevertheless, recent approaches allocate much
+more functionalities to IoT gateways so that all layers of
+the OSI model are involved and also services or applications
+will have a place there. IoT gateways are devices near the
+edge of future IoT environments, they have processing power
+and thus are able to process immediately the incoming data
+reducing significantly both the bandwidth required to send
+the raw data to the control center and the delay to create
+a response to a detected event. Hence, they will enable the
+implementation of paradigms like: putting intelligence to the
+edge of the network, distributed data acquisition and control,
+and in-network processing.
+
+Additionally, full-featured operating systems running on
+powerful processors in the IoT gateways itself can manage
+communications, perform signal processing, and execute so-
+phisticated control applications locally, rather than requiring
+instructions from a central service. Thus, IoT gateways will
+also contribute in enabling semantic inter-operability.
 
 
 
@@ -750,7 +782,7 @@ SPARQL also supports other types of query apart from the SELECT query that was s
 \end{itemize}
 
 Since the RDF data model allows heterogeneous data to be semantically described and linked, the SPARQL allows the data to be semantically extracted, integrated.
-With the ability of expressing semantic search criteria, SPAQL could be the semantic query language for discovery heterogeneous things in the IoT~\citep{Jsan:2013,Chun:2015}.
+With the ability of expressing semantic search criteria, SPAQL could be the semantic query language for discovery heterogeneous things in the IoT~\citep{Richard:2013,Chun:2015}.
 The newer version, SPARQL 1.1~\citep{Harris:2013} has included update and federation that is more adaptable to the dynamic and distributed environment of the IoT. 
 C-SPARQL~\citep{Barbieri:2009} and CQELS~\citep{Le-Phuoc:2011} are the two query languages that extend SPARQL to enable evaluating linked stream data.
 
