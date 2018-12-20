@@ -67,7 +67,7 @@ From the Internet-oriented perspective, the IoT would be seen as an integrated p
 In this context, ``thing" could be a real/physical entity or digital/virtual entity.
 The IoT could be an integrated information network of physical and virtual ``thing" that have identities, physical attributes and virtual personalities.  
 Research on SOA(service oriented architecture), Web started to pay attention the adoptions for physical ``things" thus enabling such integration~\citep{De:2011, De:2012,Guinard:2009}. 
-The idea ''sensing as service" was one of the efforts for enabling the accesses of sensory data through standard service technologies~\citep{Perera:2014a}. 
+The idea ''sensing as service" was one of the efforts for enabling the accesses of sensory data through standard service technologies~\citep{Zaslavsky:2013,Perera:2014a}. 
 The ``Web of things" was created based on the idea that a ``things" could form a new Web, and Web standards could be reuse to connect and integrate into the Web of physical things.
 
 Also, it was argued that the IoT only makes its value when the data of the physical world could be collected, analysed and transformed into useful knowledge~\citep{Vermesan:2011}.
@@ -75,7 +75,7 @@ The volume and variety of ``Things" would poses challenges of how to store, inte
 The ideas that the semantic technologies would play the key role in solving these challenges formed the Semantic-oriented vision of the IoT~\citep{Atzori:2014,Barnaghi:2012}.
 IoT devices and IoT data can be efficiently discoverable and searchable by providing them semantic description~\citep{Ioan:2009, Chun:2015,Serena:2017}. 
 Adding meaningful description for IoT data would also allow the data to be understandable to machines and software agents, thus facilitating the automated interaction among IoT devices and interoperability among existing IoT platforms~\citep{IERC:2015, Ganzha:2017}. 
-Moreover, with semantic annotated data, IoT systems could better understand the context, thus creating smarter services~\citep{Perera:2014a}. 
+Moreover, with semantic annotated data, IoT systems could better understand the context, thus creating smarter services~\citep{Perera:2014b}. 
 
 Nowadays, the IoT continues developing towards the transformation of everyday physical objects into ecosystems of information, but with new demands and requirements~\citep{Vermesan:2018}.
 Recent data technologies such as data analytics, machine learning and artificial are involving the IoT to enhance the knowledge extraction, automation and decision making. 
@@ -94,7 +94,7 @@ According to ~\cite{Al-Fuqaha:2015}, there are six core elements needed to provi
 
 \begin{figure}
     \centering
-    \includegraphics[scale=.30]{Pictures/c2/6-elements.png}
+    \includegraphics[scale=.75]{Pictures/c2/2-1-IoT-Elements.pdf}
     \caption{Iot Elements~\citep{Al-Fuqaha:2015}}
     \label{fig:2.2-technologies}
 \end{figure}
@@ -156,13 +156,17 @@ Sensors are the electronic devices that can detect events, changes in its enviro
 By converting the signals from physical stimuli into digital form that is readable by machines, sensors allow the IoT understand the environmental characteristics surrounding physical things.
 
 In order to increase the capability of observing the physical world in the IoT, multiple sensors are formed sensor networks.
-%They are widely used for many purposes ranging from environment monitoring to health care or military. 
 In the sensors networks, sensors can communicate with each other via wire or wireless connectivity. 
 With the better mobility and lower cost, wireless sensors are more attractive for deploying sensor networks~\citep{Sheng:2015}.
 
 %raw data need to be describe
 
 \subsection{Communication}
+
+Communication is the backbone technology of the IoT that connects heterogeneous objects, devices together to provide smart services. 
+IoT devices are resource constrained devices, IoT nodes should operate using low power in the presence of lossy and noisy communication links.
+This section provides the overview of networking technologies that enable the communication for the IoT.
+
 
 \subsubsection{Wireless Network Technologies}
 
@@ -252,20 +256,13 @@ RPL was optimised to meet only the minimal routing requirements over lossy links
 
 
 %[rewrite]
-The application layer is responsible for data formatting and presentation.
-The application layer in the Internet is typically based on HTTP. 
-However, HTTP is not suitable in resource constrained environments because it is fairly verbose in nature and thus incurs a large parsing overhead.
-
-
+The conventional Internet often uses HTTP application protocol, however, HTTP is not suitable for IoT resourced constrain nodes.
 The \textit{IETF Constrained RESTful Environments} (CoRE) working group created \textit{Constrained Application Protocol} (CoAP) that simplifies the HTTP to meet the resource constrained environment of the IoT. 
 CoAP also uses REST principles on top of HTTP functionalities, utilises methods such as GET, PUT, POST and DELETE to perform Create, Retrieve, Update and Delete (CRUD) operations.
 Therefore, CoAP can be considered as an alternative version of HTTP.
 However, to be suitable for resource constrained applications, CoAP is bound UDP rather than TCP.
 Unlike HTTP, CoAP uses  EXI (Efficient XML Interchanges) data format, which is space efficient comparing to plain text HTML/XML.
 A typical CoAP message can be between 10 to 20 bytes.
-
-%Moreover, CoAP can easily translate to HTTP for simplified integration with the web, while also meeting specialised requirements such as multicast support, very low overhead and simplicity
-
 
 \textit{Message Queue Telemetry Transport} (MQTT) is application protocol for messaging developed by IBM.
 MQTT is built on top of TCP with a publish/subscribe pattern.
@@ -280,14 +277,14 @@ The initial version of MQTT only operates over TCP which cannot be used with all
 is represented in text that increases its overhead.
 The latter version of MQTT-SN was optimised the earlier version for sensor networks and constraint devices.
 It supports UDP mapping and indexing on topic names. 
-It is designed for small code footprints and can be implemented in devices with less than 64kb of RAM
+It is designed for small code footprints and can be implemented in devices with less than 64kb of RAM.
 
 \subsection{IoT hardware and software}
 
 Computational units are the atomic components of the IoT, various hardware platforms and software were developed to run IoT applications. 
 Recent advances in the technologies of embedded processor have increased the processing capabilities of IoT devices.
 Many devices now can be deployed in network via different communication technologies.
-Based on the computational capability, IoT devices can be categorised into two categories: \textit{low-end}  and \textit{high-end}.
+Based on the computational capability, IoT devices can be categorised into two categories~\citep{Hahm:2016}: \textit{low-end}  and \textit{high-end}.
 The low-end IoT devices are very constrained in terms of resources including energy, CPU(less than 100MHz) and memory capacity (less than 100 kB).
 Popular examples of devices in such category include 
 Arduino~\footnote{https://www.arduino.cc/}, 
@@ -297,20 +294,19 @@ The second category consist in high-end IoT devices, which includes single-board
 Beagle Bone board~\footnote{https://beagleboard.org/bone} or 
 smartphones.
 The high-end devices are more powerful than the low-end devices.
-They have enough resources and adequa~\citep{Botta:2016}te characteristic to run software based on tradition operating systems such Linux or BSD. 
+They have enough resources and adequate characteristic to run software based on tradition operating systems such Linux or BSD. 
 
 
 Furthermore, many IoT software platforms are utilised to provide programming frameworks, programming frameworks, ma-chine-to-machine (M2M) integration, data and device management, security and storage, and protocol translation. 
 Several real-time operating systems were specifically developed for the limited resource devices such as low-end IoT devices.
-The list of the available of operation systems for IoT can be found in ~\citep{}.
-Among of these operating systems, the Contiki~\citep{}, TinyOS~\citep{}, LiteOS~\citep{} and Riot OS~\citep{} have been used widely in many IoT scenarios. 
+The list of the available of operation systems for IoT can be found in~\citep{Hahm:2016}.
+Among of these operating systems, the Contiki~\citep{Biljana:2017}, TinyOS~\citep{Amjad:2016}, LiteOS~\citep{Vanitha:2010} and RiotOS~\citep{Baccelli:2013} have been used widely in many IoT scenarios. 
 
-
-Moreover, cloud infrastructure is another important computational resource for the IoT~\citep{Botta:2016}.
+Moreover, cloud infrastructures are another important computational resources for the IoT~\citep{Botta:2016}.
 The cloud computing has been a mature technology and has been considered as an unlimited capabilities storage and processing power.
 The IoT also has been integrated with the cloud computing that introducing the \textit{``Cloud of Things"}~\citep{Jiehan:2013} or the ~\textit{``IoT Cloud"}~\citep{Truong:2015}.
-These cloud-based systems allow IoT data to be uploaded into cloud, and after being processed, the requesting results are sent back to the IoT devices or IoT applications.
-There many cloud platforms and frameworks available to host IoT services such as IBM IoT, Oracle IoT cloud or Microsoft research Lab of Things~\citep{}.
+These cloud-based systems allow IoT data to be uploaded into cloud where data is processed, and the requesting results are sent back to the IoT devices or IoT applications.
+There many cloud platforms and frameworks available to host IoT services such as IBM Bluemix IoT platform~\footnote{https://console.ng.bluemix.net/}, Oracle IoT cloud~\footnote{https://cloud.oracle.com/iot} or Microsoft research Lab of Things~\citep{Brush:2013}.
 
 \subsection{Services}
 
@@ -328,6 +324,7 @@ A \textit{smart city}~\citep{Jin:2014, Zanella:2014} which could be seen as an a
 
 \subsection{Semantic}
 
+%[rewrite]
 Semantic in the IoT refers to the ability to extract knowledge smartly by different machines to provide the required services.
 Knowledge extraction includes discovering and using resources and modeling information.
 Also, it includes recognizing and analyzing data to make sense of the right decision to provide the exact service [62]. 
@@ -344,72 +341,89 @@ EXI converts XML messages to binary to reduce the needed bandwidth and minimize 
 %=======================================================================================
 \section{IoT Architectures}
 %=======================================================================================
-In this section, the main components of the IoT were identified along with their related standards, technologies and realizations.
-The variety of standards and technologies in these elements and the way they should interoperate is a main challenge that can impede the development of IoT applications.
-The heterogeneity of the IoT elements needs a thorough solution to make ubiquitous IoT services a reality. 
-
-Section VIII addresses this problem by proposing an architectural model that alleviates the interoperability issues caused by the diversity of protocols and technologies utilised in the context of the IoT.
 
 
-Summarizing, although huge efforts have been made within the IERC
-community for the design and development of IoT technologies, the con-
-tinuously changing IoT landscape and the introduction of new requirements
-and technologies creates new challenges or raise the need to revisit existing
-well-acknowledged solutions. Thus, below is a list of the main open research
-challenges for the future of IoT:
-• IoT architectures considering the requirements of distributed intelli-
-gence at the edge, cognition, artificial intelligence, context awareness,
-tactile applications, heterogeneous devices, end-to-end security, privacy,
-trust, safety and reliability.
-• IoT systems architectures integrated with network architecture forming
-a knowledge-centric network for IoT.
-• Intelligence and context awareness at the IoT edge, using advanced
-distributed predictive analytics.
-• IoT applications that anticipate human and machine behaviours for
-social support.
-• Tactile Internet of Things applications and supportive technologies.
-• Augmented reality and virtual reality IoT applications.
-• Autonomics in IoT towards the Internet of Autonomous Things.
-• Inclusion of robotics in the IoT towards the Internet of Robotic Things.
-Artificial intelligence and machine learning mechanisms for automating
-IoT processes.
-• Distributed IoT systems using securely interconnected and synchronized
-mobile edge IoT clouds.
-• Stronger distributed and end-to-end holistic security solutions for IoT,
-preventing the exploitation of IoT devices for launching cyber-attacks,
-i.e., remotely controlling IoT devices for launching Distributed Denial
-of Service (DDoS) attacks.
-• Stronger privacy solutions, considering the requirements of the new
-General Data Protection Regulation (GDPR) [80] for protecting the
-users’ personal data from unauthorized access, employing protective
-measures (such as Privacy Enhancing Technologies – PETs) as closer
-to the user as possible.
-• Cross-layer optimization of networking, analytics, security, communi-
-cation and intelligence.
-• IoT-specific heterogeneous networking technologies that consider the
-diverse requirements of IoT applications, mobile IoT devices, delay
-tolerant networks, energy consumption, bidirectional communication
-interfaces that dynamically change characteristics to adapt to application
-needs, dynamic spectrum access for wireless devices, and multi-radio
-IoT devices.
-• Adaptation of software defined radio and software defined networking
-technologies in the IoT.
+In the early stages of research in this areas, three-layer architecture as show in Figure~\ref{fig:2.3-iot-architecture}a was proposed~\citep{Wu:2010,Yang:2011}. 
+The IoT could be built up with three layers defined as \textit{perception layer}, \textit{network layer} and \textit{application layers}:
+
+\begin{itemize}[noitemsep,nolistsep]
+\item Perception layer: 
+This layer is also know as physical layer or sensor layer and is the bottom of the IoT architectures. 
+This layer has sensors, actuators for observing and gathering physical information of their surrounding environment.
+Information collected from this layer, then, is transmitted to the network layer.
+Devices in the layer also perform some collaboration tasks with each other via short range networks.
+
+\item Network layer: 
+This layer is responsible for connecting ``Things". 
+Its main feature is to transmit information between long distance. 
+It comprises of communication and integration networking devices that function data routing, transmission to different IoT nodes, systems using recent networking technologies Wifi, LTE etc.
+This layer also includes computing platform that takes part in processing information.
+For example, the IoT gateways~\citep{Guoqiang:2013} take place in this layer serving as the mediators for the network interoperating, data aggregating, filtering and transmitting for different IoT nodes.
+The other computing platforms such as clouds or expert systems may also involve in this layer, 
+therefore, the network layer not only has the competence of network operation, but also enhance the competence of information operation.
+
+\item Application layer:
+This layer is responsible for discovering and delivering services to IoT users.
+The application layer is a connection for the IoT and domain-specific systems, for example, smart home~\citep{Biljana:2017}, smart cities~\citep{Gaur:2015}, smart health~\citep{Catarinucci:2015}.
+\end{itemize}
 
 
-\subsection{Edge Computing}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=1.5]{Pictures/c2/2-2-IoT-architectures}
+    \caption{Caption}
+    \label{fig:2.3-iot-architecture}
+\end{figure}
 
-Three typical edge computing solution:
 
-- cloudet 
+The three-layer architecture covers enough the main idea of the IoT, however, researchers often work toward the finer aspects of the IoT~\citep{Sethi:2017}.
+Therefore, many more layered architecture were proposed to clarify the network layer and application of the three-layer architecture.
+In the recent literature, the five-layer architecture~\citep{Wu:2010,Khan:2012} has been proposed with added \textit{transport layer}, \textit{processing layer} and \textit{business layer} as shown in Figure~\ref{fig:2.3-iot-architecture}b:
+\begin{itemize}[noitemsep,nolistsep]
+\item Transport layer: Differently from the network layer of the three-layer architecture, the transport layer only takes responsibility of transmission data from perception layer to the processing layer. It only includes networking technologies in this layer.
 
-- Mobile edge computing
+\item Processing layer: This layer is also known as middleware layer which is responsible for storing and processing data. Cloud computing and ubiquitous computing are the primary technologies in this layer.
 
-- Fog computing
+\item Business layer: This layer manages the whole IoT system including applications, business and profits models. The success of the IoT not only depends on the advance of the updated technologies but also the innovation and reasonable of business model.
 
-Obviously, the IoT could benefit from cloud infrastructures~\citep{Botta:2016} in providing computational resource for processing IoT data.
-The cloud computing has been a mature technology and has been considered as an unlimited capabilities storage and processing power.
-The IoT also has been integrated with the cloud computing that introducing the \textit{``Cloud of Things"}~\citep{Jiehan:2013} or the ~\textit{``IoT Cloud"}~\citep{Truong:2015}.
-These cloud-based systems allow IoT data to be uploaded into cloud, and after being processed, the requesting results are sent back to the IoT devices or IoT applications.
+\end{itemize}
+
+From system architecture perspective, the IoT systems can be classified into cloud-based systems and edge-based systems depending on where the processing layer take places.
+In some architectures, for example, Cloud of Things~\citep{Jiehan:2013} or IoTCloud~\citep{Truong:2015}, data is processed in a large centralised fashion by cloud infrastructure.
+On the other hand, in edge-based architecture, sensors, gateways, edge devices take part in data processing. 
+
+
+\subsection{Cloud-based IoT Architecture}
+
+%[Cloud infrastructure]
+The widely accepted definition of cloud computing was phrased by the Nation Institute of Standard and Technologies(NIST)~\citep{Mell:2012} as 
+‘‘Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction’’.
+The cloud is composed of four layers: datacenter, infrastructure, platform, and application~\citep{Zhang:2010}.
+Each of them can be seen as a service, for example, platform as a service (PaaS), infrastructure as a service(Iaas).
+There are twofold benefits that the cloud computing can bring to the IoT: the virtually unlimited capability and resources~\citep{Zhang:2010}, and the scalable service delivery.
+
+%[Cloud IoT Integration]
+The integration of the could computing and the IoT was derived from the ideas that the cloud could be a bridge between IoT data collection, data processing, services delivering, filling the gaps of the lack of storage, computation and communication of IoT devices~\citep{Botta:2016}.
+~\cite{Rao:2012} proved that the cloud can be an inexpensive and effective solution for things management from anywhere, at any time by using customised portals and built-in apps.
+The huge amount of data produced by the IoT can be stored and processed by the datacenters which can on-demand storage capacity and processing capabilities that~\citep{Parwekar:2011}.
+The ``everything as a service" paradigm of cloud computing can be applied on ``Things" introducing the ``\textit{Sensing as a Service}" paradigm~\citep{Zaslavsky:2013} or ``\textit{Things as a Service}" paradigm~\citep{Christophe:2011}.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=.75]{Pictures/c2/2-3-Cloud-based-architecture.pdf}
+    \caption{Could based architecture}
+    \label{fig:2.3.2-cloudIoT}
+\end{figure}
+
+Figure~\ref{fig:2.3.2-cloudIoT} illustrates an overview of architecture for the cloud of things. 
+Data generated from the perception layer is sent through the communication layer to the cloud.
+According to the requirements of the services, cloud provides storage and computation for data storing, data processing or data analysing. 
+Once the service is created, it is made available from cloud for other applications to access.
+
+There have been many 
+
+
+\subsection{Edge-based IoT Architecture}
 
 Although cloud infrastructures have been efficient for processing IoT data as computational resources on the cloud outclasses that of IoT devices at the edge, cloud computing solution could not completely solve the scalability issue in the IoT.
 The end devices in the IoT are not only data consumers as in cloud computing paradigm but data producers.
@@ -421,6 +435,8 @@ Furthermore, pushing data into cloud will dominate upstream network traffic, mea
 Moreover, some IoT applications might require very quick response time, unfortunately, cloud-based solution may lead these applications to be less operable due to unexpected network latencies.
 In additional, IoT data might contain sensitive information from the sensors that are implanted surrounding us.
 Cloud-based systems create more privacy and security concerns as centralised storages are out of users' control.
+
+\subsubsection{Edge Computing}
 
 Edge computing~\citep{Salman:2015} has been the recently decentralised computing paradigm to address these issues.
 \cite{WShi:2016} explained that ``edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,
@@ -436,9 +452,7 @@ However, computing nodes often have less computational resource and networking c
 This poses a challenge for the computing tasks to be physically moved to the edge nodes.
 
 
-
-
-\subsection{IoT Gateways}
+\subsubsection{IoT Gateways}
 
 supporting gateway devices to bridging the short range network and wide area network, s
 
@@ -476,7 +490,7 @@ also contribute in enabling semantic inter-operability.
 
 
 
-\section{Conclusion}
+\section{Summary}
 
 IoT developments during recent years have been characterized by
 attributes that can be “labelled” the 6As: Anything (any device), to be
