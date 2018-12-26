@@ -2,25 +2,33 @@
 \label{ch:iot_tech_arch}
 \lhead{Chapter 2. Internet of things: Technologies and Architectures}
 
-The \textit{Internet of things}, basically, refers to a ecosystem of interconnected physical objects that are accessible through the Internet. 
-In 1998, the term ``Internet of Things" was first used in a presentation of Kevin Ashton when presenting his work in The Auto-ID Labs~\footnote{https://autoidlabs.org/}. 
+The term ``\textit{Internet of Things}"(IoT) was first used in a presentation of Kevin Ashton when presenting his work in The Auto-ID Labs~\footnote{https://autoidlabs.org/}. 
 Since then, this paradigm has tremendously gained attention in the scenarios of modern embedded technology, communication technology and information technology.
+The IoT was, basically, to refer to an ecosystem of interconnected physical objects that are accessible through the Internet.
+As technology evolved its definition has changed, and has been more inclusive covering wide range of applications~\citep{Atzori:2017}. 
 
-The vision of the IoT has been built up from different perspectives that focus on the integration of physical world with the virtual world.
+
+Although many definitions of the IoT have been stated by different researchers, business alliances and standardisation bodies~\citep{Minerva:2015}, the main idea of the IoT is the same.
+The main goal of the IoT is the integration of physical world with the virtual world that enables a ubiquitous system of sense information.
 This integration is being created by enabling physical objects to perceive their surrounding environment, to connect and exchange data among each other and to communicate with people.
 As a result, people will be able to monitor and interact with the physical environment remotely from the computer-based systems.
 On the other hand, physical objects will be able to derive an understanding of their context, to cooperate with each other, to adaptively interact to changes of their context and thus intelligently assist people.
+
 
 IoT requires the integration of several technologies.
 Embedded technology enables sensors and actuators to be quipped on physical objects; thus they are able to perceive their context and react adaptively to the context.
 Communication technology provides networking capabilities; hence, IoT objects can communicate with each other to exchange data an context.
 Internet access and user interfaces allows interaction with or provides assistance to people from anywhere and at anytime.
+Moreover, semantic, machine intelligence technologies may involve to enable context-awareness and autonomous decision making~\citep{Vermesan:2018}. 
+
+This chapter provides the background knowledge of the Internet of Things. In particularly, section~\ref{sec:history_of_iot} introduces the development of the IoT vision. The enabling technologies for the IoT is presented in Section~\ref{sec:technologies_of_iot}. Finally, we discuss the architectures that enable the IoT in Section~\ref{sec:architecture_of_iot}
 
 %====================================================================
-\section{History of Internet of Things}
+\section{History of IoT}
 \label{sec:history_of_iot}
+\lhead{2.1 History of IoT}
 %====================================================================
-The IoT is being built up by researchers, business alliances and standardisation bodies from many domains and different perspectives.
+The IoT is being built up by researchers, business alliances and standardisation bodies from many domains and different perspectives~\citep{Minerva:2015}.
 \cite{Atzori:2010} summarised that IoT would result from the convergence of three main visions: \textit{Thing-oriented vision}, \textit{Internet-oriented vision} and \textit{Semantic-oriented vision}.
 
 %[1999]  
@@ -56,7 +64,8 @@ Autonomous and proactive behaviours, context awareness, collaborative communicat
 
 %[internet-oriented 2005 - 2010]
 According to~\cite{Atzori:2010}, the IoT vision that everything would be connected was derived from the \textit{Internet-oriented} perspective.
-In 2005, the ITU Internet Reports phrased the IoT vision as ``from anytime, anyplace connectivity for anyone, we will now have connectivity for anything"~\citep{ITU:2005}.
+In 2005, the \textit{International Telecommunication Union} (ITU)  phrased the IoT vision as ``from anytime, anyplace connectivity for anyone, we will now have connectivity for anything". They also stated that the IoT would be ``a global infrastructure for the information society, enabling advanced services by interconnecting (physical and virtual) things based on existing and evolving interoperable information and communication technologies."~\citep{ITU:2005}.
+
 
 The researches on the Internet-oriented vision attempted to extend the ``Internet of computers" to the ``Internet for everyday objects"~\citep{Mattern:2010}.
 For bringing the Internet into a physical infrastructure, the Internet $\emptyset$~\citep{Gershenfeld:2006} simplified the Internet Protocol(IP) to adapt to any object.
@@ -68,7 +77,7 @@ In this context, ``thing" could be a real/physical entity or digital/virtual ent
 The IoT could be an integrated information network of physical and virtual ``thing" that have identities, physical attributes and virtual personalities.  
 Research on SOA(service oriented architecture), Web started to pay attention the adoptions for physical ``things" thus enabling such integration~\citep{De:2011, De:2012,Guinard:2009}. 
 The idea ''sensing as service" was one of the efforts for enabling the accesses of sensory data through standard service technologies~\citep{Zaslavsky:2013,Perera:2014a}. 
-The ``Web of things" was created based on the idea that a ``things" could form a new Web, and Web standards could be reuse to connect and integrate into the Web of physical things.
+The ``Web of things" was created based on the idea that a ``things" could form a new Web, and Web standards could be reuse to connect and integrate into the Web of physical things~\citep{Christophe:2011}.
 
 Also, it was argued that the IoT only makes its value when the data of the physical world could be collected, analysed and transformed into useful knowledge~\citep{Vermesan:2011}.
 The volume and variety of ``Things" would poses challenges of how to store, interconnect, search and organise the information generated by the IoT. 
@@ -77,31 +86,34 @@ IoT devices and IoT data can be efficiently discoverable and searchable by provi
 Adding meaningful description for IoT data would also allow the data to be understandable to machines and software agents, thus facilitating the automated interaction among IoT devices and interoperability among existing IoT platforms~\citep{IERC:2015, Ganzha:2017}. 
 Moreover, with semantic annotated data, IoT systems could better understand the context, thus creating smarter services~\citep{Perera:2014b}. 
 
-Nowadays, the IoT continues developing towards the transformation of everyday physical objects into ecosystems of information, but with new demands and requirements~\citep{Vermesan:2018}.
+Recently, the developments of IoT continue towards the transformation of everyday physical objects into ecosystems of information, but with new demands and requirements~\citep{Vermesan:2018}.
 Recent data technologies such as data analytics, machine learning and artificial are involving the IoT to enhance the knowledge extraction, automation and decision making. 
-Additionally, the new requirements of reducing the latency for IoT application have been addressed in order to provide
-real-time interactive systems between human and machine.
-The development novel networking technology such as 5G network has been starting to provide faster communication.
+Additionally, the new requirements of reducing the latency for IoT application have been addressed in order to provide real-time interactive systems between human and machine.
+The development of novel networking technology such as 5G network has been starting to provide faster communication.
 The processing power is still increasing to allow the new distributed architectures and solutions for the real-time interactions of human and the IoT.  
 
+\newpage
 %=======================================================================================
-\section{IoT Technologies}
+\section{Enabling Technologies of the IoT}
+\label{sec:technologies_of_iot}
+\lhead{2.2. Enabling Technologies of the IoT}
 %=======================================================================================
+ 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=.75]{Pictures/c2/2-1-IoT-Elements.pdf}
+    \caption{The core elements of the IoT~\citep{Al-Fuqaha:2015}}
+    \label{fig:2.2-technologies}
+\end{figure}
 
 The previous section has introduced the vision and the mission of the IoT. 
 In order to provide a better overview of the components and the functionalities of the IoT, this section provide the core technologies that build up the IoT. 
 According to ~\cite{Al-Fuqaha:2015}, there are six core elements needed to provide the functionality for the IoT as illustrated in Figure~\ref{fig:2.2-technologies}.
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=.75]{Pictures/c2/2-1-IoT-Elements.pdf}
-    \caption{Iot Elements~\citep{Al-Fuqaha:2015}}
-    \label{fig:2.2-technologies}
-\end{figure}
+Each of components is discussed as followings:
 
 
 \subsection{Identification}
-\label{ss:identification}
+\label{subsec:identification}
 
 Identification is critically important for any system that requires the interaction between different components. 
 The identification of each component in a system is needed to ensure the correct integration of the system.
@@ -123,23 +135,13 @@ IoT identifiers can be classed into:
 (iii) Application identifiers which are used to identify services, applications. 
 The examples of identifiers for the IoT are provided in Table~\ref{tab:IoTIds}
 
+
 \begin{table}[ht!]
     \centering
-    \begin{tabular}{ | c | c |}
-       \hline
-       Identifier Type  &  Examples  \\
-       \hline
-       Application Identifiers  &  URIs, URLs \\
-       \hline
-       Communication Identifiers & IPv4, IPv6, E.164 \\
-       \hline
-       Object Identifiers &  EPC, UPC, DOI, UUID, URI, IOD, CID \\
-       \hline
-    \end{tabular}
+    \includegraphics[scale=1.25]{Table/2-1-identfication.pdf}
     \caption{Caption}
     \label{tab:IoTIds}
-\end{table}    
-
+\end{table}
 
 According to ~\cite{Presser:2016}, IoT identification is closely associated to functionalities: naming, addressing and discovering. 
 Naming means assigning labels or attributes to objects or a group of objects to individualise or specify them among larger set of objects.
@@ -211,24 +213,7 @@ The under-developing 5G network is expected to be rolled out by 2020 which targe
 
 \begin{table}[ht!]
     \centering
-    \footnotesize
-    \begin{tabular}{ c c | c | c | c | c | c | c | c | c |}
-    \cline{3-10}  && {\multirow{2}{*}{NFC}} & {\multirow{2}{*}{Bluetooth}} & {\multirow{2}{*}{Zigbee}} & {\multirow{2}{*}{Z-Wave}} &  {\multirow{2}{*}{LP-Wifi}} & {\multirow{2}{*}{LPWAN}} &
-    \multicolumn{2}{|c|}{Cellular networks}\\
-    \cline{9-10}
-     & & & & & & & & 3G & LTE \\
-    \hline                                     
-    \multicolumn{1}{|c|}{\multirow{2}{*}{Range}} & indoor & \multirow{2}{*}{\textless 0.2 m} & \multirow{2}{*}{1-300 m} & \textless 20 m & \multirow{2}{*}{NA} & \multirow{2}{*}{\textless 10km} & \multirow{2}{*}{\textgreater 5km} & \multirow{2}{*}{\textgreater 5km} & \multirow{2}{*}{\textless 10km} \\
-    \cline{2-2}\cline{5-5}
-    \multicolumn{1}{|c|}{} & outdoor & & & \textless 1500 m &  &   & & & \\
-    \hline
-    \multicolumn{2}{|c|}{Rate\newline[Mpbs]} & 0.4 & 1-3 & 0.25 &  0.15-40 & \textless 0.05 & 0.17 & 75-300 & \\
-    \hline
-    \multicolumn{2}{|c|}{Thr. \newline[Mpbs]} & 0.22 & 0.30 -1.5 & 0.15  & \textgreater 0.1 & \textless0.05 && \multicolumn{2}{c|}{NA}  \\
-    \hline
-    \multicolumn{2}{|c|}{Freq. [GHz]} & 0.14 & 2.4 - 2.5 & 2.4 & 0.9 & sub-GHz & 0.8-1.9 & 2.1 & \\
-    \hline
-    \end{tabular}
+    \includegraphics[scale=.95]{Table/2-2-wireless.pdf}
     \caption{Caption}
     \label{tab:my_label}
 \end{table}
@@ -302,6 +287,7 @@ Several real-time operating systems were specifically developed for the limited 
 The list of the available of operation systems for IoT can be found in~\citep{Hahm:2016}.
 Among of these operating systems, the Contiki~\citep{Biljana:2017}, TinyOS~\citep{Amjad:2016}, LiteOS~\citep{Vanitha:2010} and RiotOS~\citep{Baccelli:2013} have been used widely in many IoT scenarios. 
 
+
 Moreover, cloud infrastructures are another important computational resources for the IoT~\citep{Botta:2016}.
 The cloud computing has been a mature technology and has been considered as an unlimited capabilities storage and processing power.
 The IoT also has been integrated with the cloud computing that introducing the \textit{``Cloud of Things"}~\citep{Jiehan:2013} or the ~\textit{``IoT Cloud"}~\citep{Truong:2015}.
@@ -340,6 +326,8 @@ EXI converts XML messages to binary to reduce the needed bandwidth and minimize 
 
 %=======================================================================================
 \section{IoT Architectures}
+\label{sec:architecture_of_iot}
+\lhead{2.3 IoT Architectures}
 %=======================================================================================
 
 
@@ -410,7 +398,7 @@ The ``everything as a service" paradigm of cloud computing can be applied on ``T
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[scale=.75]{Pictures/c2/2-3-Cloud-based-architecture.pdf}
+    \includegraphics[scale=.65]{Pictures/c2/2-3-Cloud-based-architecture.pdf}
     \caption{Could based architecture}
     \label{fig:2.3.2-cloudIoT}
 \end{figure}
@@ -423,26 +411,75 @@ Once the service is created, it is made available from cloud for other applicati
 There have been many 
 
 
-\subsection{Edge-based IoT Architecture}
+\subsection{Fog/Edge-based IoT Architecture}
 
-Although cloud infrastructures have been efficient for processing IoT data as computational resources on the cloud outclasses that of IoT devices at the edge, cloud computing solution could not completely solve the scalability issue in the IoT.
+Although cloud infrastructures have been efficient for processing IoT data as computational resources on the cloud outclasses that of IoT devices at the edge, cloud-based IoT systems would encounter the issues related to network latency and traffic~\citep{Bonomi:2012,Zhang:2015,WShi:2016}.
 The end devices in the IoT are not only data consumers as in cloud computing paradigm but data producers.
 Therefore, the common approaches of directly connecting IoT devices and pushing IoT data to the cloud may have several disadvantages~\citep{Zhang:2015}.
 The increasing of the number of the IoT devices means the quantity of produced IoT data is raising quickly.
 Most of the data can be discarded immediately after being processed.
 Hence, in these centralised systems, the bandwidth would be overwhelming and might be wasted.
 Furthermore, pushing data into cloud will dominate upstream network traffic, meanwhile, broadband networks have more downstream bandwidth than upstream bandwidth.
-Moreover, some IoT applications might require very quick response time, unfortunately, cloud-based solution may lead these applications to be less operable due to unexpected network latencies.
+Moreover, some IoT applications might require very quick response time, unfortunately, cloud-based solution may lead these applications to be less operable due to unexpected network latency.
 In additional, IoT data might contain sensitive information from the sensors that are implanted surrounding us.
-Cloud-based systems create more privacy and security concerns as centralised storages are out of users' control.
+Cloud-based systems create more privacy and security concerns as centralised storage are out of users' control.
+To address the issues of network overhead and network latency, and to improve the scalability for the IoT, the recent fog/edge based IoT architecture has been proposed~\citep{Bonomi:2014,Salman:2015}. 
+As illustrated in Figure~\ref{fig:2.3.3-egdeIoT}, in fog/edge based system architecture, edge devices take part in data storing and data processing.
 
-\subsubsection{Edge Computing}
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=.65]{Pictures/c2/2-4-Edge-based-architecture.pdf}
+    \caption{Caption}
+    \label{fig:2.3.3-egdeIoT}
+\end{figure}
 
-Edge computing~\citep{Salman:2015} has been the recently decentralised computing paradigm to address these issues.
-\cite{WShi:2016} explained that ``edge computing refers to the enabling technologies allowing computation to be performed at the edge of the network,
-on downstream data on behalf of cloud services and upstream data on behalf of IoT services".
-\cite{WShi:2016} also defined the ``edge" as ``any computing and network resources along the path between data sources and cloud data centres".
-Thus, the edge can be the smartphones as they are placed between sensors and cloud or the edge can be the gateway devices that connect smart devices and data centres.
+\cite{Bonomi:2012} from Cisco stated that ``\textit{fog computing} is a highly virtualised platform that provides compute, storage and networking services between end devices and traditional Cloud computing Data Centres, typically, but not exclusively located at the edge of the network".
+Meanwhile, \cite{WShi:2016} explained that ``\textit{edge computing} refers to the enabling technologies allowing computation to be performed at the edge of the network, on downstream data on behalf of cloud services and upstream data on behalf of IoT services".
+Both fog computing and edge computing aim to provide the computation, storage, communication, services capabilities to the edge of network.
+
+\cite{WShi:2016} defined the ``edge" as ``any computing and network resources along the path between data sources and cloud data centres".
+In fog/edge based IoT architecture (see. Figure~\ref{fig:2.3.3-egdeIoT}),the fog/edge layer may include large number of edge/fog nodes which usually are routers, gateways, switchers, base stations or specific fog servers that are placed between end devices and cloud. 
+Fog/edge nodes can be static at a fix point such as street light, house, offices or mobile on a moving objects such as smart phones or connected vehicle~\citep{Bonomi:2014}. 
+These fog/edge nodes that have capabilities to compute, transmit and store the temporary data.
+The end users can connect to these fog/edge nodes to obtain applications, services.
+As fog layer is placed close to end users, edge/fog layer could support latency-sensitive applications, services.
+Moreover, in the situation that more powerful computing and storage capabilities is required, fog/edge node can be connected to cloud. 
+
+
+
+Both fog computing and edge computing paradigms is to decentralise and distribute data processing and storing from cloud to edge networks, these two terms are often used interchangeably.
+
+
+
+
+For edge computing and fog computing, their architectures are hierarchical, decentralized, and distributed, which is different from centralized cloud computing architecture. 
+Their service locations are the proximity to end users.
+Edge computing is located in edge devices,while fog computing is located in network edge devices, which is single network hop or few network hops away from the edge. 
+Their resources(e.g., computing, communication and storage resources) and computation and storage capabilities are limited by comparing with cloud computing, and edge computing is more limited than fog computing.
+Because the resources and service capabilities of network edge devices are relatively stronger than edge devices. 
+Moreover, these two computing paradigm have mobility support for end users. 
+Because most services are provided locally, it is essential to take the existence of mobile devices into consideration. 
+They also support the scalability of the whole ecosystem. 
+The reason is that a large number of wide-spread and geo-distributed nodes are available if the situation requires them,including the nodes located at a certain site, neighboring nodes, or even the nodes situated at more remote geographical locations (Romanet al.,). 
+Furthermore, they are highly virtualized computing platforms.
+The nodes and networks are not always physical, while virtual sensor nodes and virtual sensor networks are also used for implementing various services (Aazam and Huh, 2014Aazam and Huh, 2014). 
+The virtualized service mechanisms can be provided by them.
+
+Obviously, even if they have the same goal, there are still some underlying differences between edge computing and fog computing. 
+In edge computing, edge devices cannot implement multiple IoT applications, because the limited resources will result in resource contention and increase processing latency. 
+While fog computing can overcome these limitations felicitously and avoid resource contention at the edge by seamlessly integrating edge devices and cloud resources. 
+It coordinates the use of geographically distributed network edge devices and leverages the cloud resources to balance the use of resources and improve the utilization (Dastjerdi and Buyya, 2016). 
+Furthermore,edge computing pays more attention to the things level, while fog computing focus more on the infrastructures level.
+
+For edge computing and fog computing, their service locations are the proximity to end users. However, Edge computing is located in edgedevices, while fog computing is located in network edge devices, whichis single network hop or few network hops away from the edge. Edgecomputing platform usually tends to be constrained devices, whichbattery or storage capacities often are the limiting factors. When themultiple IoT applications need to be handled, this will result inresource contention and increases processing latency (Dastjerdi andBuyya, 2016). So the resource contention of edge computing is moreserious than fog computing. Moreover, edge computing focus more onthe things level, while fog computing focus more on the infrastructurelevel
+
+
+\begin{table}[ht!]
+    \centering
+    \includegraphics[scale=.75]{Table/2-3-edge-fog-cloud.pdf}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
 
 The edge computing has been emergent and benefit for the IoT~\citep{Yu:2018}. 
 There have been several early results that demonstrated the benefit of applying edge computing. 
@@ -450,43 +487,6 @@ Face recognition application could run 4 times faster by moving computation from
 Using cloudets for offloading computing tasks did not only reduce the response time for wearable cognitive assistant but also save 30$\%$ to 40$\%$ energy consumption~\citep{Ha:2014}. 
 However, computing nodes often have less computational resource and networking capability. 
 This poses a challenge for the computing tasks to be physically moved to the edge nodes.
-
-
-\subsubsection{IoT Gateways}
-
-supporting gateway devices to bridging the short range network and wide area network, s
-
-IoT gateways primarily act as the bridge to connect sensor
-networks with traditional communication networks, having ca-
-pabilities such as protocol conversion and device management.
-Figure 1 gives an overview of IoT gateway functionalities
-resulting from the current technological trends, and we can
-see that gateways play an essential role to enable technological
-interoperability. Nevertheless, recent approaches allocate much
-more functionalities to IoT gateways so that all layers of
-the OSI model are involved and also services or applications
-will have a place there. IoT gateways are devices near the
-edge of future IoT environments, they have processing power
-and thus are able to process immediately the incoming data
-reducing significantly both the bandwidth required to send
-the raw data to the control center and the delay to create
-a response to a detected event. Hence, they will enable the
-implementation of paradigms like: putting intelligence to the
-edge of the network, distributed data acquisition and control,
-and in-network processing.
-
-Additionally, full-featured operating systems running on
-powerful processors in the IoT gateways itself can manage
-communications, perform signal processing, and execute so-
-phisticated control applications locally, rather than requiring
-instructions from a central service. Thus, IoT gateways will
-also contribute in enabling semantic inter-operability.
-
-
-
-
-
-
 
 
 
