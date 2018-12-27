@@ -150,47 +150,31 @@ The IoT ID addressing technologies are often developed in conjunction with the I
 IoT discovering is the process of locating devices, services or data. 
 There have been various approaches for the discovery in the IoT, for example, geographic location-based discovery approach~\citep{Dinh:2017}, semantic web-based discovery approach~\citep{Chun:2015, Serena:2017}.
 
-\nop{
-The IoT ID naming technologies have been used including: CID (Communication Identifier), ECODE (Entity Code), HANDLE/DOI
-name: OID (Object Identifier) , IPV6, Handle/DOI, BAR CODES and RFID, URIs and UUIDS,
-address: DNS (Domain Name Systems), HANDLE
-discovery: Resource Discovery in web of things, device abstraction in m2m,
+\subsection{Sensing Technologies}
 
-As IoT is a system of interconnected ``things", its applications are typically based on the integration of these ``things".
-Similarly to any interactive system, the unique identification of ``thing" is require to ensure the correct integration.
-Identification is critically important for any system that requires the interaction between different components. 
-The identification of each component in a system is needed to ensure the correct integration of the system.
-The IoT could be seen as a global interaction system and its components are users, services, devices and physical objects.
-Therefore, ``things" in the IoT must be identified in order to enable such interaction.
-    
-Due to the continuous increase of the connected devices, providing scalable addressing and identification mechanism is challenging for the IoT. 
-The designs of such mechanisms also have to cope to the heterogeneity of the ``things" which could be physical objects or virtual objects. 
-Physical objects such as wireless sensors, mobile devices, computers are associated with identifiers such as host names, IP addresses.
-Whereas, virtual objects could be identified by the mechanisms, for example, ULRs (Universal Resource Locators) for identifying web services, or DOIs (Digital Objects Identifiers) for referencing digital documents.
-The identification for the IoT would be required to address the full range of physical and virtual objects.}
-
-
-
-
-\subsection{Sensor Networks}
-
-%what is sensing
-Sensing technologies are the key enablers of the integration of physical world and the virtual world.
+Sensing technologies are one of the key enabling technologies for the IoT.
+According to Thing-oriented vision of the IoT, the development of sensing technologies has been enabling ``feeling things"~\citep{Minerva:2015} which would be essential for the integration of physical world and virtual world~\citep{Vermesan:2011}. 
 Sensors are the electronic devices that can detect events, changes in its environment or measure the quantity of the physical properties.
-By converting the signals from physical stimuli into digital form that is readable by machines, sensors allow the IoT understand the environmental characteristics surrounding physical things.
+Sensors convert the signals from physical stimuli into digital form that is readable by machines. 
 
-In order to increase the capability of observing the physical world in the IoT, multiple sensors are formed sensor networks.
-In the sensors networks, sensors can communicate with each other via wire or wireless connectivity. 
-With the better mobility and lower cost, wireless sensors are more attractive for deploying sensor networks~\citep{Sheng:2015}.
+Along with the development of embedded technologies, sensors become smaller, cheaper and they can be attached into our everyday devices.
+For example, accelerometer, gyroscope, light sensor are available in many smart phones, or heart rate, blood pressure, body temperature can be detected with smart watch or medical devices. 
+Variety of environmental sensors and chemical sensors are used to observe the characteristics of physical environment such as temperature, pressure, water quality or CO$_{2}$ in the air.
 
-%raw data need to be describe
 
-\subsection{Communication}
+In order to increase the capability of observing the physical environment, sensor networks are deployed.
+A sensor network consists of multiple sensing devices, called sensor nodes, that can communicate with each others via wire or wireless connectivity.
+The data collected from these nodes is sent to other local nodes or other networks (via gateways)~\citep{Akyildiz:2010}.
+With the better mobility and lower cost, wireless sensors are more attractive for nowadays deploying sensor networks~\citep{Sheng:2015}.
+Wireless sensor network have been available in many application scenarios such as environmental monitoring~\citep{Lazarescu:2013}, agriculture~\citep{Ojha:2015}, healthcare~\citep{Catarinucci:2015}, and smart buildings~\citep{Ghayvat:2015}.
 
-Communication is the backbone technology of the IoT that connects heterogeneous objects, devices together to provide smart services. 
-IoT devices are resource constrained devices, IoT nodes should operate using low power in the presence of lossy and noisy communication links.
-This section provides the overview of networking technologies that enable the communication for the IoT.
+%The sensor networks have become the most essential component of IoT as they are the ~\citep{Atzori:2010, Al-Fuqaha:2015}. 
 
+
+\subsection{Communication Technologies}
+
+Communication is the backbone technology of the IoT that connects heterogeneous objects, devices together and to deliveries smart services. IoT devices are resource constrained devices such as wireless sensors, they using low power in the presence of lossy and noisy communication links.
+This section provides the overview of communication technologies that enable the communication for the IoT.
 
 \subsubsection{Wireless Network Technologies}
 
@@ -237,7 +221,7 @@ The under-developing 5G network is expected to be rolled out by 2020 which targe
     \centering
     \includegraphics[scale=.95]{Table/2-2-wireless.pdf}
     \caption{Caption}
-    \label{tab:my_label}
+    \label{tab:wireless}
 \end{table}
 
 \subsubsection{Network Protocols}
@@ -320,7 +304,7 @@ There many cloud platforms and frameworks available to host IoT services such as
 
 There four classes of IoT services that are available in many researches references: ~\textit{Identity-related Services}, \textit{Information Aggregation Services}, ~\textit{Collaborative-Aware Services} and ~\textit{Ubiquitous Services}~\citep{Mohammed:2015}.
 Identify-related services are the most basic but important services. 
-As presented in Section~\ref{ss:identification}, every device that connected to the IoT network has to be identified.
+As presented in Section~\ref{subsec:identification}, every device that connected to the IoT network has to be identified.
 Therefore, every application, service in the IoT requires this type of services to identify the things that are involving. 
 Raw sensory data is collected, processed and reported to the to IoT application using Information Aggregation services. 
 Collaborative-Aware services are the smart services that can make smart decisions.
