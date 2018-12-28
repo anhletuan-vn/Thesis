@@ -143,7 +143,7 @@ The examples of identifiers for the IoT are provided in Table~\ref{tab:IoTIds}
 
 The identifications technologies for IoT are associated with three functionaries: IoT ID naming, IoT ID addressing and IoT ID discovering~\citep{Soldatos:2014}.
 Naming means assigning labels or attributes to objects or a group of objects to individualise or specify them among larger set of objects.
-The technologies for IoT ID naming have been used including IPv6~\citep{Deering:2017} developed by IETF, Handle System~\footnote{www.handle.net}, RFID developed by AutoID, URIs, etc.
+The technologies for IoT ID naming have been used including IPv6~\citep{Deering:2017} developed by the Internet Engineering Task Force(IETF), Handle System~\footnote{www.handle.net}, RFID developed by AutoID, URIs, etc.
 ID addressing is to assigning addresses for connected objects within a communication network.
 ID addressing also provides the means for mapping of the identifiers at different layers to the communication identifiers.
 The IoT ID addressing technologies are often developed in conjunction with the IoT naming technologies.
@@ -168,33 +168,32 @@ The data collected from these nodes is sent to other local nodes or other networ
 With the better mobility and lower cost, wireless sensors are more attractive for nowadays deploying sensor networks~\citep{Sheng:2015}.
 Wireless sensor network have been available in many application scenarios such as environmental monitoring~\citep{Lazarescu:2013}, agriculture~\citep{Ojha:2015}, healthcare~\citep{Catarinucci:2015}, and smart buildings~\citep{Ghayvat:2015}.
 
-%The sensor networks have become the most essential component of IoT as they are the ~\citep{Atzori:2010, Al-Fuqaha:2015}. 
-
-
 \subsection{Communication Technologies}
 
-Communication is the backbone technology of the IoT that connects heterogeneous objects, devices together and to deliveries smart services. IoT devices are resource constrained devices such as wireless sensors, they using low power in the presence of lossy and noisy communication links.
-This section provides the overview of communication technologies that enable the communication for the IoT.
+Communication technologies are backbone of the IoT that connects heterogeneous objects, devices together and deliveries their services.
+Creating the seamless communication for IoT is challenging because of the variety, heterogeneity and the resource constraint of IoT devices.
+This section provides an overview of Wireless technologies and networking protocol that are developed for enabling the IoT.
 
-\subsubsection{Wireless Network Technologies}
+\subsubsection{Connectivity Technologies}
 
-%[Low-range]
+Different wireless technologies have been developed to provide the communication between IoT devices and to allow IoT devices to connect to the Internet. 
+The following are the popular wireless technologies that have been used in the IoT.
 
-\textbf{Near Field Communication} is low-range wireless connectivity technology which allows small data to be transmitted over distance of few centimetres. 
-Similarly to RFID, NFC transfers data by generating magnetic field and operates over a frequency band of 13.56 MHz.
+\textbf{NFC} is the acronym for \textit{Near Field Communication}~\citep{Want:2011}. It is a low-range wireless connectivity technology which allows small data to be transmitted over distance of few centimetres. 
+NFC transfers data by generating magnetic field and operates over a frequency band of 13.56 MHz.
 However, NFC allows both one-way and two-way communications between two devices.
 Furthermore, NFC has two operating modes: active and passive.
 In active mode, both the sender and the receiver  generating their own fields.
 Passive mode is useful for saving energy as only one device generates the field, and the other answers by modulating the existing field.
 
-\textbf{Bluetooth} is the wireless technology that uses short-wavelength UHF radio for exchanging data over short distance.
+\textbf{Bluetooth}~\citep{bluetooth} is the wireless technology that uses short-wavelength UHF radio for exchanging data over short distance.
 Compared to NFC, Bluetooth supports broadcasting and provides wider range connectivity with higher frequency and data throughput. 
 \textit{Classic Bluetooth} offers enough throughput for data stream application, however, it has several limitations including limited number of nodes in the network.
-\textit{Bluetooth Low Energy} or ``\textit{Bluetooth smart}" is advanced over Classic Bluetooth.
+\textit{Bluetooth Low Energy}(BLE)~\citep{Heydon:2013} or ``\textit{Bluetooth smart}" is advanced over Classic Bluetooth.
 It consumes less energy, supports unlimited number of nodes, however, it does not support data streaming and offers lower data rate.
-The recent version, \textit{Bluetooth 5.0}, increase the communication range up to 300m and doubles the speed of the low energy connections. 
+The recent version, \textit{Bluetooth 5.0}~\citep{Collatta:2018}, increase the communication range up to 300m and doubles the speed of the low energy connections. 
 
-\textbf{Zigbee} is another low-cost, low-power wireless technology which is based on IEEE 802.15.4 communication protocol.
+\textbf{Zigbee}~\citep{Alliance:2009} is another low-cost, low-power wireless technology which is based on IEEE 802.15.4 communication protocol.
 Compared to Bluetooth or NFC, it offers lower data transferring rate but  much wider communication range.
 Depending on power output, outdoors with line-of-sight of Zigbee may range up to 1500m.
 Zigbee devices are of there types: Zigbee Coordinator(ZC), Zigbee Router(ZR), Zigbee End Device (ZED).
@@ -202,20 +201,26 @@ ZED devices are the simplest devices in Zigbee networks, they just have basic fu
 In a Zigbee network, ZC device is the most capable device whose roles are the root of the network and the bridge to other networks.
 Whereas, ZR devices are the intermediate routers for passing data from devices to devices internally. 
 
-\textbf{Z-Wave} is popularised as low-power wireless communication technology for Home Automation Networks.
+\textbf{Z-Wave}~\citep{Alliance:2013} is popularised as low-power wireless communication technology for Home Automation Networks.
 It covers about 30 meters point-to-point communication, therefor, being widely used in remote applications in smart homes.
-Z-wave operates in ISM band around 900MHz and the recent version supports transmission rate up to 200Kbps.
+Z-wave operates in the industry, scientific and medial radio bands (ISM band) around 900MHz and the recent version supports transmission rate up to 200Kbps.
 
-\textbf{Low Power WiFi} is also known as ``WiFi HaLow", which is based on IEEE 802.11ah standard.
+\textbf{Low Power WiFi} is also known as ``WiFi HaLow"~\footnote{https://www.wi-fi.org/discover-wi-fi/wi-fi-halow}, which is based on IEEE 802.11ah standard.
 The development of WiFi HaLow attempts to extend the range of transmission and to reduce the energy consumption for the WiFi.
 Compared to conventional WiFi(IEEE 802.11 b/g/n), the range that HaLow can communicate is doubled.
 Wireless sensor networks are the motivated scenarios of HaLow, in which, the devices are energy constrained and require relatively long range connectivity. 
 
-\textbf{Low Power Wide Area Network (LPWAN)}  is a class of the very long range wireless technologies that are suitable for low power application. They can support up to 10 Km distance, however, very low data rate. The technologies in this class include SigFox, LoRaWan and Weightless. 
+\textbf{Low Power Wide Area Network (LPWAN)}~\citep{Bardyn:2016}  is a class of the very long range wireless technologies that are suitable for low power application. They can support up to 10 Km distance, however, very low data rate. The technologies in this class include SigFox~\citep{zuniga:2016}, LoRaWan~\citep{Lora:2015} and Weightless~\citep{Webb:2012}. 
 
-\textbf{Cellular networks} such as 3G,4G, LTE can provide high-speed connectivity to the Internet for mobile devices. These technologies are based on GSM/UMTS technologies, providing multicasting and broadcasting for fast-travelling devices.
+\textbf{Cellular networks} such as 3G,4G, LTE~\citep{Dahlman:2013} can provide high-speed connectivity to the Internet for mobile devices. These technologies are based on GSM/UMTS technologies, providing multicasting and broadcasting for fast-travelling devices.
 However, they have high power consumption profile.
-The under-developing 5G network is expected to be rolled out by 2020 which targets high data rate, reduced latency, energy saving, cost reduction, higher system capacity, and massive device connectivity
+The under-developing 5G network~\citep{Li:2018} which is expected to be rolled out by 2020 is targeting high data rate, reduced latency, energy saving, cost reduction, higher system capacity, and massive device connectivity.
+
+Table~\ref{tab:wireless} below summaries some characteristics of these wireless technologies which should be considered for deploying the communication in the IoT.  
+Each of the type of communication is suitable for the specific type of devices and specific purposes.
+For example, compared with NFC, Wifi Halow or Zigbee can provide the communication for two IoT devices in longer distance but they suffer lower data rate and consume more energy.
+Thus they might not be sufficient for real-time applications. 
+On the other hand, NFC requires the two devices to be close each other.
 
 \begin{table}[ht!]
     \centering
